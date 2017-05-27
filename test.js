@@ -40,12 +40,13 @@ var titles = ['kaky', 'bouya', 'he']
 function arrTitle(arr, target){
 for (var i = 0; i < arr.length; i++) {
    if (arr[i] === target) {
-    return true;
+    console.log(true);
    }else{
-    return false;
+   console.log(false);
    }
   }
 }
+
 
 //=====================================================
 
@@ -335,19 +336,35 @@ for(var i = 0; i < family.length; i++){
 
 
 //  Game of FizzBuzz.
+// const fizzBuzz = () => {
+//   for(var i = 1; i <= 20; i++) {
+//     if( i%3 === 0 ) {
+//       if( i%5 === 0) {
+//         console.log("FizzBuzz");
+//       }else if(i%3===0) {
+//         console.log("Fizz");
+//       }
+//     }else if( i%5===0 ) {
+//       console.log("Buzz");
+//     }else console.log(i);
+//   }
+// };
 
-for(var i = 1; i <= 20; i++) {
-  if( i%3 === 0 ) {
-    if( i%5 === 0) {
-      console.log("FizzBuzz");
-    }else if(i%3===0) {
-      console.log("Fizz");
-    }
-  }else if( i%5===0 ) {
-    console.log("Buzz");
-  }else console.log(i);
-}
 
+const fizzBuzz = () => {
+  for(var i = 1; i <= 20; i++) {
+    if( i%3 === 0  && i%5 === 0) {
+        console.log("FizzBuzz");
+      }else if (i%3===0){
+        console.log("Fizz");
+      }
+    else if( i%5===0 ) {
+      console.log("Buzz");
+    }else console.log(i);
+  }
+};
+
+fizzBuzz();
 
 // address book
 
@@ -576,3 +593,68 @@ function getTotal() {
 }
 
 console.log(getTotal());
+
+
+const loopOverAnArray = () => {
+  var vacationSpots = ["NYC", "CA", "VA"];
+  for(var i = 0; i < vacationSpots.length; i++){
+   console.log('I would love to visit ' + vacationSpots[i]);;
+  }
+};
+
+loopOverAnArray();
+
+const reverseLoopOverAnArray = () => {
+  var vacationSpots = ["NYC", "CA", "VA"];
+  for(var i = vacationSpots.length-1; i >= 0; i--){
+  console.log('I would love to visit ' + vacationSpots[i]);
+  }
+};
+
+reverseLoopOverAnArray();
+
+const matchItemInTwoArrays = () => {
+    var myPlaces = ["London", "Paris", "Berlin", "NYC", "Montreal", "Lyon", "Monaco"];
+    var friendPlaces = ["Lyon", "Monaco", "Toronto", "Mexico City", "London", "Paris"];
+    for(var i = 0; i < myPlaces.length; i++){
+      for (var j = 0; j < friendPlaces.length; j++ ){
+    if (myPlaces[i] === friendPlaces[j]) {
+        console.log('Match: ' + myPlaces[i]);
+      }
+    }
+  }
+}
+
+matchItemInTwoArrays();
+
+
+
+const gameUsingWhileLoop = () => {
+  var cards = ['Diamond', 'Spade', 'Heart', 'Club'];
+  var currentCard = 'Heart';
+
+  while (currentCard !== 'Spade') {
+    console.log(currentCard);
+    var randomNumber = Math.floor(Math.random() * 4);
+     currentCard = cards[randomNumber];
+   }
+    console.log('Found a Spade!');
+};
+
+/*
+
+This unit introduced you to scope.
+
+Scope is the idea in programming that some variables are acessible/inaccessible from other parts of the program.
+
+Global Scope refers to variables that are accessible to every part of the program.
+
+Functional Scope refers to variables created inside functions, which are not accessible outside of its block.
+
+for loops allow us to repeat a block of code a known amount of times.
+
+We can use a for loop inside another for loop to compare two lists.
+
+while loops are for looping over a code block an unknown amount of times.
+
+*/
