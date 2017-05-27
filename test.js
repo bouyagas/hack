@@ -530,3 +530,49 @@ cashRegister.applyStaffDiscount(me);
 
 // Show the total bill
 console.log('Your bill is '+cashRegister.total.toFixed(2));
+// =================================
+
+var calculatorOn = false;
+function pressPowerButton() {
+  if (calculatorOn) {
+    console.log('Calculator turning off.');
+    calculatorOn = false;
+  } else {
+    console.log('Calculator turning on.');
+    calculatorOn = true;
+  }
+}
+
+pressPowerButton();
+// Output: Calculator
+
+pressPowerButton();
+
+
+
+
+//==============================================
+
+var orderCount =+ 0;
+function takeOrder(topping, crustType) {
+  orderCount = orderCount + 1;
+  console.log('Order: ' + crustType + ' crust topped with ' + topping);
+}
+function getSubTotal(itemCount){
+  return itemCount * 7.5;
+}
+takeOrder('bacon', 'thin');
+takeOrder('pepperoni', 'regular');
+takeOrder('pesto', 'thin');
+
+console.log(getSubTotal( orderCount));
+
+function getTax(){
+  return getSubTotal(orderCount)*0.06;
+}
+
+function getTotal() {
+  return getSubTotal(orderCount) + getTax();
+}
+
+console.log(getTotal());
