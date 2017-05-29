@@ -595,39 +595,41 @@ function getTotal() {
 console.log(getTotal());
 
 
-const loopOverAnArray = () => {
   var vacationSpots = ["NYC", "CA", "VA"];
-  for(var i = 0; i < vacationSpots.length; i++){
-   console.log('I would love to visit ' + vacationSpots[i]);;
+
+const loopOverAnArray = (arr) => {
+  for(var i = 0; i < arr.length; i++){
+   console.log('I would love to visit ' + arr[i]);;
   }
 };
 
-loopOverAnArray();
+loopOverAnArray(vacationSpots);
 
-const reverseLoopOverAnArray = () => {
   var vacationSpots = ["NYC", "CA", "VA"];
-  for(var i = vacationSpots.length-1; i >= 0; i--){
-  console.log('I would love to visit ' + vacationSpots[i]);
+const reverseLoopOverAnArray = (arr) => {
+  for(var i = arr.length-1; i >= 0; i--){
+  console.log('I would love to visit ' + arr[i]);
   }
 };
 
-reverseLoopOverAnArray();
-
-const matchItemInTwoArrays = () => {
+reverseLoopOverAnArray(vacationSpots);
+//...............................................................
     var myPlaces = ["London", "Paris", "Berlin", "NYC", "Montreal", "Lyon", "Monaco"];
     var friendPlaces = ["Lyon", "Monaco", "Toronto", "Mexico City", "London", "Paris"];
-    for(var i = 0; i < myPlaces.length; i++){
-      for (var j = 0; j < friendPlaces.length; j++ ){
-    if (myPlaces[i] === friendPlaces[j]) {
-        console.log('Match: ' + myPlaces[i]);
+
+const matchItemInTwoArrays = (place1, place2) => {
+    for(var i = 0; i < place1.length; i++){
+      for (var j = 0; j < place2.length; j++ ){
+    if (place1[i] === place2[j]) {
+        console.log('Match: ' + place1[i]);
       }
     }
   }
 }
 
-matchItemInTwoArrays();
+matchItemInTwoArrays(myPlaces, friendPlaces);
 
-
+//......................................................................
 
 const gameUsingWhileLoop = () => {
   var cards = ['Diamond', 'Spade', 'Heart', 'Club'];
@@ -657,4 +659,39 @@ We can use a for loop inside another for loop to compare two lists.
 
 while loops are for looping over a code block an unknown amount of times.
 
+
+The Document Object Model, commonly referred to as the DOM', is the term for elements in an HTML file.
+ Elements are any HTML code denoted by HTML tags, like <div>, <a>, or <p>.
+ Let's use JavaScript to interact with the DOM.
 */
+
+
+function tra(arr){
+   let obj = {}
+   obj[arr[0]] = arr[arr.length-1]
+   return obj;
+}
+
+
+
+
+
+// ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ var myPlaces = ["London", "Paris", "Berlin", "NYC", "Montreal", "Lyon", "Monaco"];
+ var friendPlaces = ["Lyon", "Monaco", "Toronto", "Mexico City", "London", "Paris"];
+
+const findMatchInAnArray = (arr1, arr2) => {
+  for(let i = 0; i < arr1.length; i++) {
+    for(let j = arr2.length-1; j >= 0; j--) {
+     if(arr1[i] === arr2[j]) {
+        console.log('Match: ' + arr1[i]);
+     }
+    }
+  }
+};
+
+const MyArray = (target1, target2) => {
+  return findMatchInAnArray(target1, target2);
+}
+
+// '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
