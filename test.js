@@ -14,7 +14,23 @@ console.log(output);
 console.log('There are ' + text.length + ' letter!');
 console.log('There are ' + text.split(" ").length + ' word!')
 
+//.......................................................................
 
+function countLetters(str) {
+  // your code here
+  var word = str.split('');
+  var obj = {};
+  for(var i = 0; i < word.length; i++ ){
+   obj[word[i]] = (obj[word[i]] || 0) + 1
+  }
+  return obj;
+}
+
+var text = 'For years, Mr. Netanyahu has sought to recalibrate relations with Sunni Arab nations in a mutual bid to counter the Shiite-led Iran, while subordinating the Palestinian dispute as a secondary issue. But as Mr. Trump arrived in Jerusalem after meetings in Saudi Arabia, the president indicated that he and those Arab states see an agreement with the Palestinians as integral to that new regional alignment. On those issues, there is a strong consensus among the nations of the world — including many in the Muslim world,” Mr. Trump said. “I was deeply encouraged by my conversations with Muslim world leaders in Saudi Arabia, including King Salman, who I spoke to at great length. King Salman feels very strongly and, I can tell you, would love to see peace with Israel and the Palestinians.Mr. Trump added that line to the remarks prepared for him, in effect tying the future of the anti-Iran coalition to the Palestinian issue despite Mr. Netanyahu’s longtime efforts to unlink the two. “There is a growing realization among your Arab neighbors that they have common cause with you in the threat posed by Iran, and it is indeed a threat, there’s no question about that,” Mr. Trump said.'
+var output = countWords(text);
+console.log(output);
+
+//.......................................................................
 
 function removeNumbersLargerThan(num, obj) {
   // your code here
@@ -694,4 +710,62 @@ const MyArray = (target1, target2) => {
   return findMatchInAnArray(target1, target2);
 }
 
+MyArray(myPlaces, friendPlaces);
+
 // '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+// h r technical interview
+
+// first  interview
+const titles = ['kaky', 'bouya', 'he']
+
+function titleInsideArray(arr, target) => {
+    for (var i = 0; i < arr.length; i++) {
+      if(arr[i] === target){
+         return true;
+      }
+    }
+    return false;
+}
+
+titleInsideArray(titles, 'he');
+
+
+// second interview
+function assert(expectedBehavior, messageThatNeedtoOutPut){
+  if(!expectedBehavior){
+    console.log(messageThatNeedtoOutPut)
+  }else{
+    console.log('test passe')
+  }
+}
+
+function testArrayCompare(array1, array2) {
+if(array1.length !== array2.length)
+    return false;
+for(var i = 0; i < array1.length; i++;) {
+    if(array1[i] !== array2[i])
+        return false;
+}
+
+return true;
+
+}
+
+
+var first = [1, 2, 3, 4, 5];
+var second = [1, 2, 3, 4, 5];
+var third = [1, 9, 3, 4, 5];
+var fourth = [1, 2, 3, 4, 5, 6];
+
+
+
+assert(testArrayCompare(first, second) === true, 'it could be equivalent');
+assert(testArrayCompare(second, third) === false, 'it could be equivalent');
+assert(testArrayCompare(first, fourth) === false, 'it could be equivalent');
+
+
+
+var x;
+
+assert(x === 12, 'x should eqaul to 12');
