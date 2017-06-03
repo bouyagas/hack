@@ -740,16 +740,16 @@ function assert(expectedBehavior, messageThatNeedtoOutPut){
   }
 }
 
+
+
 function testArrayCompare(array1, array2) {
 if(array1.length !== array2.length)
     return false;
 for(var i = 0; i < array1.length; i++;) {
     if(array1[i] !== array2[i])
         return false;
-}
-
-return true;
-
+  }
+  return true;
 }
 
 
@@ -764,8 +764,109 @@ assert(testArrayCompare(first, second) === true, 'it could be equivalent');
 assert(testArrayCompare(second, third) === false, 'it could be equivalent');
 assert(testArrayCompare(first, fourth) === false, 'it could be equivalent');
 
-
-
 var x;
 
 assert(x === 12, 'x should eqaul to 12');
+
+// ----------------------------------------------------------------
+
+
+// functional
+var carLike = function(obj, loc) {
+  obj.loc = loc;
+  obj.move = function() {
+    obj.loc++;
+  }
+  return obj;
+}
+
+// class the first way of writing a class new Car to initiate an object
+// prototypal
+var Car  = function(loc) {
+  var obj = Object.create(Car.prototype)
+  obj.loc = loc;
+  return obj;
+};
+
+ Car.prototype = {
+    move: function() {
+      this.loc++;
+  },
+
+    on: function() {
+      /*
+       Your code
+      */
+  },
+
+  off: function() {
+    /*
+      Your code
+    */
+  }
+
+};
+
+
+
+// class call first way
+
+var amy2 = new Car(1)
+    amy2.move();
+
+//........................................................................
+
+
+// class the second way of writing a  class new Car to initiate an object
+
+var Car = function(loc) {
+  this = Object.create(Car.prototype)
+  this.loc = loc;
+  return this;
+};
+
+Car.prototype = {
+  move: function() {
+    this.loc++
+  },
+  on: function(){
+    /*
+     Your code
+    */
+  },
+  off: function() {
+    /*
+     Your code
+    */
+  }
+};
+
+
+
+// Second way of calling class
+
+var ben = Car(9);
+    ben.move()
+
+//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+// pseudo functional
+var Car  = function(loc) {
+  this.loc = loc;
+};
+
+ Car.prototype.move: function() {
+    this.loc++;
+}
+
+
+// run.js
+// obj call
+var carLike = require(/* ./libery.js */);
+
+var amy1 = carLike({}, 1); // {loc: 1}
+    amy1.move(); // {loc: += 1}
+var ben1 = carLike({}, 9); // {loc: 9}
+    ben1.move(); // {loc: loc + 9}
+
+
