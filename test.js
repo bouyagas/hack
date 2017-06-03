@@ -850,7 +850,7 @@ var ben = Car(9);
 
 //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-// pseudo functional
+// pseudo-classical
 var Car  = function(loc) {
   this.loc = loc;
 };
