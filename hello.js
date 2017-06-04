@@ -154,3 +154,87 @@ console.log(bond(1, 2, 3))
 
 // var bound = functionName.bind(obj);
 // bound(arg1, arg2, arg3);
+
+
+
+// callback function higher order function (function are first object)
+
+let x = function() {
+  console.log('I am called from inside a function ')
+};
+
+let y = function(callback){
+  console.log('do something');
+  callback();
+}
+
+y(x);
+
+// -----------------------------------------------------------
+
+var add = function(a, b) {
+   return a + b;
+};
+
+var subtract = function(a, b) {
+   return a - b;
+};
+
+var multiple = function(a, b) {
+   return a * b;
+};
+
+var divide = function(a, b) {
+   return a / b;
+};
+
+
+var calc = function (num1 , num2, calcType) {
+   switch(calcType){
+     case 'add':
+       return add(num1, num2);
+     break;
+     case 'subtract':
+       return subtract(num1, num2);
+     break;
+     case 'multiple':
+       return multiple(num1, num2);
+     break;
+     case 'divide':
+      return divide(num1, num2);
+     break;
+     default:
+       return 'Undefined  calcType';
+     break;
+   }
+};
+
+console.log(calc(1,2, 'add'));
+console.log(calc(1,2, 'subtract'));
+console.log(calc(1,2, 'multiple'));
+console.log(calc(1,2, 'divide'));
+console.log(calc(1,2, 'di'));
+
+
+
+
+var myArr = [{
+  num: 5,
+  str: 'apple'
+ }, {
+  num: 7,
+  str: 'cabbage'
+ }, {
+  num: 1,
+  str: 'ban'
+}];
+
+myArr.sort(function(val1, val2){
+   if(val1.num > val2.num) {
+    return -1;
+   } else {
+    return 1;
+   }
+});
+
+console.log(myArr);
