@@ -771,7 +771,7 @@ assert(x === 12, 'x should eqaul to 12');
 // ----------------------------------------------------------------
 
 
-// functional
+// functional pattern
 var carLike = function(obj, loc) {
   obj.loc = loc;
   obj.move = function() {
@@ -781,7 +781,7 @@ var carLike = function(obj, loc) {
 }
 
 // class the first way of writing a class new Car to initiate an object
-// prototypal
+// prototypal pattern
 var Car  = function(loc) {
   var obj = Object.create(Car.prototype)
   obj.loc = loc;
@@ -850,7 +850,7 @@ var ben = Car(9);
 
 //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-// pseudo-classical
+// pseudo-classical pattern
 var Car  = function(loc) {
   this.loc = loc;
 };
@@ -869,4 +869,80 @@ var amy1 = carLike({}, 1); // {loc: 1}
 var ben1 = carLike({}, 9); // {loc: 9}
     ben1.move(); // {loc: loc + 9}
 
+//]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
+// SuperClass
+var Car = function() {
+  var obj = { loc: loc };
+  obj.move = function() {
+    obj.loc++;
+  }
+  return obj;
+}
+
+// Classes that in
+var Van = function() {
+  var obj = Car(loc);
+  obj.grab = function(){
+    /* Your code*/
+  };
+  return obj;
+}
+
+
+var Cop = function() {
+  var obj = Car(loc);
+  obj.call = function(){
+    /* Your code*/
+  };
+  return obj;
+}
+
+//////////////////////////////////////////////////////////////
+
+// pseudo-classical SuperClass Pattern
+
+var Car = function(loc) {
+  this.loc = loc;
+};
+
+Car.prototype.move = function() {
+  this.loc++;
+};
+
+
+var Van = function(loc) {
+  Call(this, loc);
+};
+
+Van.prototype = Object.create(Car.prototype);
+Van.prototype.constructor = Van;
+Van.prototype.grap = function() {
+  /* */
+}
+
+
+
+
+
+var zed = new Car(1);
+    zed.move()
+var amy  = new Van(9);
+    amy.move();
+    amy.grap();
+// ========================================================
+
+
+function findAndComputerGreaterArray(arr) {
+  var greatArr = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if(arr[i] >= 10){
+    greatArr++;
+   }
+  }
+  console.log("this is " + greatArr + " in the array");
+}
+
+var myArr = [94,494, 4,43,5,7,877,65,40,2,34,5,6,7,10, 29];
+
+findAndComputerGreaterArray(myArr);
