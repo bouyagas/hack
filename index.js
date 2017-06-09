@@ -815,7 +815,7 @@ console.log(getAllLetters("Radagast"));
 
 
 
-Write a function called "addFullNameProperty".
+//Write a function called "addFullNameProperty".
 
 /*Given an object that has a "firstName" property and a "lastName" property, "addFullNameProperty" returns a "fullName" property whose value is a string with the first name and last name separated by a space.
 
@@ -823,6 +823,8 @@ var person = {
   firstName: 'Jade',
   lastName: 'Smith'
 };
+
+
 addFullNameProperty(person);
 console.log(person.fullName); // --> 'Jade Smith'
 
@@ -1076,7 +1078,25 @@ console.log(output);
 //.............................................................
 
 
-squareElements and Diana's question'
+// function getElementsLessThan100AtProperty(obj, key) {
+  // your code here
+  var arr = [];
+  for (var i in obj.key){
+    if(obj.key[i] <= 100){
+      arr.push(obj.key[i]);
+    }
+  }
+  return arr;
+}
+
+
+
+var obj = {
+  key: [1000, 20, 50, 500]
+};
+
+var output = getElementsLessThan100AtProperty(obj, 'key');
+console.log(output);squareElements and Diana's question'
 
 function isGreaterThan10(number) {
   return number > 1;
@@ -1400,6 +1420,45 @@ var obj = {
 var output = getElementsThatEqual10AtProperty(obj, 'key');
 console.log(output); // --> [10, 10]
 
+//-----------------------------------------------
+function getElementsLessThan100AtProperty(obj, key) {
+  // your code here
+  var arr = [];
+  for (var i in obj.key){
+    if(obj.key[i] <= 100){
+      arr.push(obj.key[i]);
+    }
+  }
+  return arr;
+}
+
+
+
+var obj = {
+  key: [1000, 20, 50, 500]
+};
+
+var output = getElementsLessThan100AtProperty(obj, 'key');
+console.log(output);
+//-------------------------------------------------function getElementsLessThan100AtProperty(obj, key) {
+  // your code here
+  var arr = [];
+  for (var i in obj.key){
+    if(obj.key[i] <= 100){
+      arr.push(obj.key[i]);
+    }
+  }
+  return arr;
+}
+
+
+
+var obj = {
+  key: [1000, 20, 50, 500]
+};
+
+var output = getElementsLessThan100AtProperty(obj, 'key');
+console.log(output);
 
 //Starter Code:
 function select(arr, obj) {
@@ -2152,3 +2211,19 @@ function verifiedIfIndexIncludeAnArray(arr, target){
 var titles = ['The habbit', 'Game of Throme', 'The Last King']
 console.log(arrTitle(titles, 'he'));
 
+
+
+function getLastElementOfProperty(obj, key) {
+  // your code here
+    if (obj.hasOwnProperty(key) && Array.isArray(obj.key)) {
+      return obj.key.filter((element, index) => {
+        return index === 2;
+      });
+    }
+}
+
+var obj = {
+  key: [1, 2, 5]
+};
+var output = getLastElementOfProperty(obj, 'key');
+console.log(output);

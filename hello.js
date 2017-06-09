@@ -238,3 +238,69 @@ myArr.sort(function(val1, val2){
 });
 
 console.log(myArr);
+
+
+// javascript promises
+
+let promiseToCleanTheRoom = new Promise(function(resolve, reject) {
+  // cleaning the room
+
+  let isClean = true;
+
+  if (isClean) {
+
+    resolve('Clean');
+
+  } else {
+
+    reject('Not Clean');
+  }
+
+});
+
+promiseToCleanTheRoom.then(function(fromResolve){
+  console.log('the room is ' + fromResolve);
+}).catch(function(fromReject){
+  console.log('the room is ' + fromReject);
+});
+
+
+//..................................................
+
+let cleanRoom = function() {
+    return new Promise (function(resolve, reject){
+      resolve(' Clean The Room');
+    });
+};
+
+let removeGarbage = function(message) {
+    return new Promise (function(resolve, reject){
+       resolve(message + ' Remove Garbage');
+    });
+};
+
+let winIcecream = function(message) {
+    return new Promise (function(resolve, reject){
+       resolve(message + ' Won Icecream ');
+    });
+};
+
+
+cleanRoom().then(function(result){
+  return removeGarbage(result);
+}).then(function(result) {
+  return winIcecream(result)
+}).then(function(result) {
+  console.log(' I am finish' + result);
+})
+
+// all the promise is finish
+Promise.all([cleanRoom(), removeGarbage(), winIcecream()]).then(function() {
+  console.log(' I am finished');
+ })
+
+// one of the promise is finish
+Promise.race([cleanRoom(), removeGarbage(), winIcecream()]).then(function() {
+  console.log(' one of the promise is finish');
+ })
+
