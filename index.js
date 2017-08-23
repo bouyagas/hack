@@ -2227,3 +2227,33 @@ var obj = {
 };
 var output = getLastElementOfProperty(obj, 'key');
 console.log(output);
+
+
+
+var gar = [1, 2, 3, 4];
+
+const higherOrderFunction1 = (array) => {
+  let  power = (base, exp) => {
+    if (exp === 0) {
+      return 1;
+    }
+    return base * power(base, exp - 1);
+  };
+
+   let each = (array, func) => {
+    for (let i = 0; i < array.length; i++) {
+      func(array[i]);
+    }
+  };
+
+   let sumSquares = (sumArray) => {
+    let sum = 0;
+    each(sumArray, (element) => {
+      sum += power(element, 2);
+    });
+    return sum;
+  };
+ return sumSquares(array);
+};
+
+higherOrderFunction1(gar);

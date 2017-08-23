@@ -11,7 +11,7 @@ Notes:
 
 function findShortestElement(arr) {
   var shortestElement = arr[0];
-  
+
   if (arr.length === 0) {
     return "[]";
   } else {
@@ -42,9 +42,9 @@ function countAllCharacters(str) {
   var sort = arr.sort();                          //sorts array so characters will be together
   var charCount = 1;                              //set character count to 1
   var newObj = {};
-  
+
   for (var i = 0; i < arr.length; i++) {
-    if (arr[i] === arr[i+1]) {                    //if the letter matches the next letter counter is increased  
+    if (arr[i] === arr[i+1]) {                    //if the letter matches the next letter counter is increased
       charCount++;
     } else {
       newObj[arr[i]] = charCount;                 //once the next letter is different, then we assign the character and its count to our object
@@ -59,7 +59,7 @@ countAllCharacters("king joffrey first of his name");
 
 /* 125 Instructions from your teacher:
 Write a function called "getProductOfAllElementsAtProperty".
-Given an object and a key, "getProductOfAllElementsAtProperty" returns the product of all the elements in the array located at the given key. 
+Given an object and a key, "getProductOfAllElementsAtProperty" returns the product of all the elements in the array located at the given key.
 Notes:
 * If the array is empty, it should return 0.
 * If the property at the given key is not an array, it should return 0.
@@ -75,7 +75,7 @@ function getProductOfAllElementsAtProperty(obj, key) {
   } else {
     obj[key].forEach(function(value) {
       product*= value;
-    
+
     });
   }
   return product;
@@ -102,7 +102,7 @@ Notes:
 function calculateBillTotal(totalBill) {
   var totalTax = totalBill * 0.095;
   var totalTip = totalBill * 0.15;
-  
+
   return totalBill + totalTax + totalTip;
 }
 
@@ -137,7 +137,7 @@ Given an array and an index, "getAllElementsButNth" returns an array with all th
 
 function getAllElementsButNth(arr, index) {
   var containerArray = [];
-  
+
   arr.forEach(function(element, i) {
     if (i !== index ) {
       containerArray.push(element);
@@ -202,7 +202,7 @@ removeStringValues(myObject);
 
 /* 100 Instructions from your teacher:
 Write a function called "getAverageOfElementsAtProperty".
-Given an object and a key, "getAverageOfElementsAtProperty" returns the average of all the elements in the array located at the given key. 
+Given an object and a key, "getAverageOfElementsAtProperty" returns the average of all the elements in the array located at the given key.
 Notes:
 * If the array at the given key is empty, it should return 0.
 * If the property at the given key is not an array, it should return 0.
@@ -312,9 +312,9 @@ getElementsGreaterThan10AtProperty(numberObject, "nums");
 
 /* 89 Instructions from your teacher:
 Write a function called "select".
-Given an array and an object, "select" returns a new object whose properties are those in the given object AND whose keys are present in the given array. 
+Given an array and an object, "select" returns a new object whose properties are those in the given object AND whose keys are present in the given array.
 Notes:
-* If keys are present in the given array, but are not in the given object, it should ignore them. 
+* If keys are present in the given array, but are not in the given object, it should ignore them.
 * It does not modify the passed in object.
 var arr = ['a', 'c', 'e'];
 var obj = {
@@ -330,8 +330,8 @@ console.log(output); // --> { a: 1, c: 3 }
 //Inputs:  array and object
 //Outputs:  new object with keys as values in array
 
-//1.  need a new object 
-//2.  if the value of the element in the arr === obj[key] 
+//1.  need a new object
+//2.  if the value of the element in the arr === obj[key]
 
 function select(arr, obj) {
   var newObj = {};
@@ -342,7 +342,7 @@ function select(arr, obj) {
       }
     }
   }
-  
+
 }
 
 

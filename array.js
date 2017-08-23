@@ -148,3 +148,74 @@ function checkArr(arr , target) {
 }
 
 console.log(checkArr(myArr2, 'one'));
+
+
+// Custom higher order function for loop over an array
+const _arrayEach = (array, iterator) => {
+  for(let i = 0; i < array.length; i++) {
+     iterator(array[i], i);
+  }
+};
+
+// Custom higher order function for loop over an object
+const _objectEach = (obj, iterator) => {
+  for (let key in obj) {
+    func(obj[key], key);
+  }
+};
+
+// Custom higher order function for loop over an array and object
+const _bothEach = (coll, func) => {
+  if (Array.isArray(coll)) {
+    for (let i = 0; i < coll.length; i++) {
+      func(coll[i]);
+    }
+  } else {
+    for (let key in coll) {
+      func(coll[ke], key);
+    }
+  }
+};
+
+// Custom higher order function for filtering over an array
+const _filter = (array, predicate) => {
+  let acc = [];
+  each(array, function(element, i) {
+    if (predicate(element, i)) {
+      acc.push(element);
+    }
+  });
+  return acc;
+};
+
+
+const indexedExponent = (num) => {
+  let result = [];
+  each(num, (val, index) => {
+   result.push(Math.pow(val, index));
+  });
+  return result;
+};
+
+myNum([1,2,3]);
+
+
+
+
+
+
+// const _arrayEach = (array, iterator) => {
+//   for(let i = 0; i < array.length; i++) {
+//      iterator(array[i], i);
+//   }
+// };
+// const indexedExponent = (num) => {
+//   let result = [];
+//   _arrayEach(num, (val, index) => {
+//     if(val % 2 === 0) {
+//    result.push(val);
+//   }
+//   });
+//   return result;
+// };
+// indexedExponent([1,2,3]);

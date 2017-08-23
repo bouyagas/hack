@@ -22,7 +22,7 @@ console.log(output);
 // compute area of rectangle
 
 function computeAreaOfARectangle(length, width) {
-  return length * width; 
+  return length * width;
 }
 var output = computeAreaOfARectangle(4, 8);
 console.log(output);
@@ -150,7 +150,7 @@ function computeAreaOfACircle(radius) {
   return area;
 }
 var output = computeAreaOfACircle(4);
-console.log(output); 
+console.log(output);
 
 // compute power
 
@@ -168,7 +168,7 @@ function calculateBillTotal(preTaxAndTipAmount) {
   return preTaxAndTipAmount + tip + salesTax;
 }
 var output = calculateBillTotal(20);
-console.log(output); 
+console.log(output);
 
 // compute compound interest
 
@@ -416,7 +416,7 @@ function or(expression1, expression2) {
   }else if(expression1 === true && expression2 === true){
       return true;
   }else{
-      return false;   
+      return false;
   }
 }
 var output = or(true, false);
@@ -655,7 +655,7 @@ function getElementsUpTo(array, n) {
   var arr = array.slice(0, n);
   return arr;
 }
-var output = getElementsUpTo(['a', 'b', 'c', 'd', 'e'], 3); 
+var output = getElementsUpTo(['a', 'b', 'c', 'd', 'e'], 3);
 console.log(output);
 
 // getElementsAfter
@@ -664,7 +664,7 @@ function getElementsAfter(array, n) {
   var arr = array.slice(n + 1);
   return arr;
 }
-var output = getElementsAfter(['a', 'b', 'c', 'd', 'e'], 2); 
+var output = getElementsAfter(['a', 'b', 'c', 'd', 'e'], 2);
 console.log(output);
 
 // getNthElement
@@ -696,7 +696,7 @@ function getAllElementsButLast(array) {
 }
 var input = [1, 2, 3, 4];
 var output = getAllElementsButLast(input);
-console.log(output); 
+console.log(output);
 
 // removeFromFront
 
@@ -813,10 +813,10 @@ function getLargestElement(arr) {
 var output = getLargestElement([5, 2, 8, 3]);
 console.log(output); // --> 8;
 
-findShortestElement
-—
-Oct.13.2016
-No progress
+// findShortestElement
+// —
+// Oct.13.2016
+// No progress
 
 // removeFromFrontOfNew
 
@@ -880,10 +880,10 @@ function filterEvenElements(arr) {
 var output = filterEvenElements([2, 3, 4, 5, 6]);
 console.log(output); // --> [2, 4, 6]
 
-computeProductOfAllElements
-—
-Oct.13.2016
-No progress
+// computeProductOfAllElements
+// —
+// Oct.13.2016
+// No progress
 // filterOddElements
 
 function filterOddElements(arr) {
@@ -981,11 +981,11 @@ var input = [1,2,3,4,5];
 var output = computeAverageOfNumbers(input);
 console.log(output); // --> 3
 
-findShortestWordAmongMixedElements
-—
-Oct.13.2016
-No progress
-// keep
+// findShortestWordAmongMixedElements
+// —
+// Oct.13.2016
+// No progress
+// // keep
 
 function keep(array, keeper) {
   var acc = [];
@@ -996,7 +996,7 @@ function keep(array, keeper) {
   }
   return acc;
 }
-var output = keep([1, 2, 3, 2, 1], 2); 
+var output = keep([1, 2, 3, 2, 1], 2);
 console.log(output); // --> [2, 2]
 
 // removeElement
@@ -1047,7 +1047,7 @@ function getAllWords(str) {
   var words = str.split(' ');
   var acc = [];
   for(var i = 0; i < str.length; i++){
-    acc = words; 
+    acc = words;
   }
   return acc;
 }
@@ -1290,7 +1290,7 @@ No progress
 
 // Answers
 
-// Write a function called "getLargestNumberAmongMixedElements". 
+// Write a function called "getLargestNumberAmongMixedElements".
 
 // Given any array, "getLargestNumberAmongMixedElements" returns the largest number in the given array.
 
@@ -1301,16 +1301,16 @@ No progress
 
 function getLargestNumberAmongMixedElements(arr) {
   // your code here
-  //var largestNumber = arrNums[0]; 
+  //var largestNumber = arrNums[0];
   var arrNums = []
   for (var i = 0; i < arr.length; i++) {
     if (typeof arr[i] === "number"){
-      arrNums.push(arr[i]); 
+      arrNums.push(arr[i]);
     }
   }
-  var largestNumber = arrNums[0]; 
+  var largestNumber = arrNums[0];
   if (arr.length === 0) { //check if array is empty
-      return 0; 
+      return 0;
   }
   else if (arrNums.length === 0) {
     return 0; //check if arrayNums is empty
@@ -1318,12 +1318,12 @@ function getLargestNumberAmongMixedElements(arr) {
   else {
       arrNums.forEach(function(element){
           if (element > largestNumber){
-              largestNumber = element; 
+              largestNumber = element;
           }
       });
       return largestNumber
   //create new array consisting of numbers
-  //if such an array is empty return 0 
+  //if such an array is empty return 0
   }
 }
 var output = getLargestNumberAmongMixedElements(["name", -4, -1, -11]);
@@ -1333,12 +1333,12 @@ var output = getLargestNumberAmongMixedElements(["name", -4, -1, -11]);
 function multiply(num1, num2) {
   // your code here
   if (num2 === 0) {
-      return 0; 
+      return 0;
   }
   if (num2 < 0) {
-      return num1 + multiply(num1, num2 + 1); 
+      return num1 + multiply(num1, num2 + 1);
   }
-  return num1 + multiply(num1, num2 - 1); 
+  return num1 + multiply(num1, num2 - 1);
 }
 var output = multiply(-5, -6);
 //console.log(output);
@@ -1363,22 +1363,22 @@ var output = multiply(-5, -6);
 function getEvenLengthWordsAtProperty(obj, key) {
   // your code here
   var property = obj[key];
-  var evenWords = []; 
+  var evenWords = [];
   if (!property) {
-      return []; 
+      return [];
   }
   else if (!Array.isArray(property)) {
-      return []; 
+      return [];
   }
   else if (property.length === 0) {
-      return property; 
+      return property;
   }
   for (var i = 0; i < property.length; i++) {
           if (property[i].length % 2 === 0) {
-              evenWords.push(property[i]); 
+              evenWords.push(property[i]);
           }
   }
-  return evenWords; 
+  return evenWords;
 }
 
 var obj = {
@@ -1399,27 +1399,27 @@ var output = getEvenLengthWordsAtProperty(obj, 'key');
 
 function getEvenElementsAtProperty(obj, key) {
   // your code here
-  var property = obj[key]; 
-  var evenElements = []; 
+  var property = obj[key];
+  var evenElements = [];
   if (!property){
-      return []; 
+      return [];
   }
   else if (property.length === 0){
-      return []; 
+      return [];
   }
   else if (!Array.isArray(property)) {
-      return []; 
+      return [];
   }
   for (var i = 0; i < property.length; i++) {
       if (property[i] % 2 === 0) {
-          evenElements.push(property[i]); 
-      } 
+          evenElements.push(property[i]);
+      }
   }
   if (evenElements.length === 0) {
-      return []; 
+      return [];
   }
   else {
-      return evenElements; 
+      return evenElements;
   }
 }
 var obj = {
@@ -1430,59 +1430,59 @@ var output = getEvenElementsAtProperty(obj, 'key');
 
 function getElementOfArrayProperty(obj, key, index) {
   // your code here
-  var property = obj[key]; 
-  //console.log(property); 
+  var property = obj[key];
+  //console.log(property);
   if (!property) {
       return undefined;
   }
   else if (property.length === 0) {
-      return undefined; 
+      return undefined;
   }
   else if (!Array.isArray(property)) {
-      return undefined; 
+      return undefined;
   }
   else if (property[index] === "undefined") {
-      return undefined; 
+      return undefined;
   }
-    return property[index]; 
+    return property[index];
 }
 var obj = {
  key: ['Jamil', 'Albrey']
 };
-var output = getElementOfArrayProperty(obj, 'key', 0); 
+var output = getElementOfArrayProperty(obj, 'key', 0);
 //console.log(output); // --> 'Jamil'
 
 function multiply(num1, num2) {
   // your code here
- var total = 0; 
+ var total = 0;
 if (num1 > 0 && num2 > 0) {
     for (; num2 > 0; num2 = num2 - 1) {
-        total = total + num1; 
+        total = total + num1;
     }
-    return total; 
+    return total;
   }
 else if (num1 === 0 || num2 === 0) {
-  return total; 
+  return total;
   }
 else if (num1 < 0 && num2 < 0) {
   for (; num2 < 0; num2 = num2 + 1) {
-    total = total + num1; 
+    total = total + num1;
   }
-  return -total; 
+  return -total;
 }
 else if (num1 > 0 && num2 < 0) {
     for(; num2 < 0; num2 = num2 + 1) {
       total = total - num1
     }
-    return total; 
+    return total;
   }
 else if (num1 < 0 && num2 > 0) {
   for(; num2 > 0; num2 = num2 - 1) {
       total = total + num1
     }
-    return total; 
+    return total;
 }
-} 
+}
 var output = multiply(-2, -2);
 //console.log(output); // --> 28
 
@@ -1500,19 +1500,19 @@ function getStringLength(string) {
   //keep changing it until temp thing is zero
   var temp
   var count = 0
-  var n = 1; 
+  var n = 1;
   while (string !== "") {
-      string = string.substring(1); 
-      count = count + 1; 
+      string = string.substring(1);
+      count = count + 1;
   }
-  return count; 
+  return count;
 }
 
 function myLength(s){
  return s.split('').reduce(function(prevVal, currElement){
   //inside the iterative function block
   return prevVal + 1;
- }, 0);  //need to have the very first 'prevVal' to work with on the 1st 
+ }, 0);  //need to have the very first 'prevVal' to work with on the 1st
          //iteration only
 }
 
@@ -1527,25 +1527,41 @@ function findShortestWordAmongMixedElements(arr) {
   if (arr.length === 0) {
       return "";
   }
-  var arrStr = []; 
+  var arrStr = [];
   for (var i = 0; i < arr.length; i++) {
       if (typeof arr[i] === "string") {
-          arrStr.push(arr[i]); 
+          arrStr.push(arr[i]);
       }
   }
   if (arrStr.length === 0) {
-      return ""; 
+      return "";
   }
-  var shortestWord = arrStr[0]; 
+  var shortestWord = arrStr[0];
   for (var k = 0; k < arrStr.length; k++) {
       if (arrStr[k].length < shortestWord.length) {
-          shortestWord = arrStr[k]; 
+          shortestWord = arrStr[k];
       }
       else if (shortestWord.length = arrStr[k].length) {
-          shortestWord; 
+          shortestWord;
       }
   }
-  return shortestWord; 
+  return shortestWord;
 }
 var output = findShortestWordAmongMixedElements([4, 'two', 2, 'three']);
 console.log(output); // --> 'two'
+
+
+// reversing a string in a declative way
+function rev(w) {
+ var revw = '',
+for (var i = w.length - 1; i >= 0; i--) {
+    revw = revw.concat(w[i])
+  }
+  return revw;
+}
+
+console.log(rev('hello'));
+
+
+
+// Characters within a string are indexed starting from 0, where the first character is at position 0, to n-1, where the last character is at position n-1 (n represents the total number of characters within a string).

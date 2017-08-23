@@ -1,6 +1,7 @@
 function countWords(str) {
   // your code here
   var word = str.split(' ');
+
   var obj = {};
   for(var i = 0; i < word.length; i++ ){
    obj[word[i]] = (obj[word[i]] || 0) + 1
@@ -167,9 +168,9 @@ var compare = function(choice1, choice2){
 
 
 
-    myText = "Blah blah blah blah blah blah Eric \
+    myText = `Blah blah blah blah blah blah Eric \
 blah blah blah Eric blah blah Eric blah blah \
-blah blah blah blah blah Eric";
+blah blah blah blah blah Eric`;
 var myName = "Eric";
 
 const addArray = (text, name) => {
@@ -947,3 +948,1004 @@ function findAndComputerGreaterArray(arr) {
 var myArr = [94,494, 4,43,5,7,877,65,40,2,34,5,6,7,10, 29];
 
 findAndComputerGreaterArray(myArr);
+
+
+
+
+
+
+
+
+/*
+ * Programming Quiz - Checking Your Balance (3-5)
+ */
+
+// change the values of `balance`, `checkBalance`, and `isActive` to test your code
+var balance = 325.00;
+var checkBalance = true;
+var isActive = false;
+
+// your code goes here
+
+if (checkBalance) {
+    if (isActive && balance > 0) {
+        console.log(`Your balance is $${balance}.`);
+    } else if (!isActive) {
+        console.log("Your account is no longer active.");
+    } else if (balance === 0) {
+        console.log("Your account is empty.");
+    } else {
+        console.log("Your balance is negative. Please contact bank.");
+    }
+} else {
+    console.log("Thank you. Have a nice day!");
+}
+
+
+
+
+
+
+/*
+ * Programming Quiz: Ice Cream (3-6)
+ *
+ * Write a single if statement that logs out the message:
+ *
+ * "I'd like two scoops of __________ ice cream in a __________ with __________."
+ *
+ * ...only if:
+ *   - flavor is "vanilla" or "chocolate"
+ *   - vessel is "cone" or "bowl"
+ *   - toppings is "sprinkles" or "peanuts"
+ */
+
+// change the values of `flavor`, `vessel`, and `toppings` to test your code
+var flavor = "strawberry";
+var vessel = "cone";
+var toppings = "cookies";
+
+// Add your code here
+if ((flavor === "vanilla" || flavor === "chocolate") &&
+    (vessel === "cone" || vessel === "bowl") &&
+    (toppings === "sprinkles" || toppings === "peanuts")) {
+        console.log(`I'd like two scoops of ${flavor} ice cream ` +
+                    `in a ${vessel} with ${toppings}.`);
+    }
+
+
+
+
+
+
+
+
+/*
+ * Programming Quiz: What do I Wear? (3-7)
+ */
+
+// change the values of `shirtWidth`, `shirtLength`, and `shirtSleeve` to test your code
+var shirtWidth = 23;
+var shirtLength = 30;
+var shirtSleeve = 8.71;
+
+// your code goes here
+if ((shirtWidth >= 18 && shirtWidth < 20) && (shirtLength >= 28 && shirtLength < 29) && (shirtSleeve >= 8.13 && shirtSleeve < 8.38)) {
+    console.log("S");
+} else if ((shirtWidth >= 20 && shirtWidth < 22) && (shirtLength >= 29 && shirtLength < 30) && (shirtSleeve >= 8.38 && shirtSleeve < 8.63)) {
+    console.log("M");
+} else if ((shirtWidth >= 22 && shirtWidth < 24) && (shirtLength >= 30 && shirtLength < 31) && (shirtSleeve >= 8.63 && shirtSleeve < 8.88)) {
+    console.log("L");
+} else if ((shirtWidth >= 24 && shirtWidth < 26) && (shirtLength >= 31 && shirtLength < 33) && (shirtSleeve >= 8.88 && shirtSleeve < 9.63)) {
+    console.log("XL");
+} else if ((shirtWidth >= 26 && shirtWidth < 28) && (shirtLength >= 33 && shirtLength < 34) && (shirtSleeve >= 9.63 && shirtSleeve < 10.13)) {
+    console.log("2XL");
+} else if (shirtWidth >= 28  && shirtLength >= 34 && shirtSleeve >= 10.13) {
+    console.log("3XL");
+} else {
+    console.log("N/A");
+}
+
+
+// What will be printed to the console if the following code is run?
+
+var adult = true;
+var preorder = true;
+
+console.log("It costs $" + (adult ? "40.00" : "20.00") + " to attend the concert. Pick up your tickets at the " + (preorder ? "will call" : "the gate") + ".");
+
+
+
+
+
+
+
+/*
+ * Programming Quiz - Navigating the Food Chain (3-8)
+ *
+ * Use a series of ternary operator to set the category to one of the following:
+ *   - "herbivore" if an animal eats plants
+ *   - "carnivore" if an animal eats animals
+ *   - "omnivore" if an animal eats plants and animals
+ *   - undefined if an animal doesn't eat plants or animals
+ *
+ * Notes
+ *   - use the variables `eatsPlants` and `eatsAnimals` in your ternary expressions
+ *   - `if` statements aren't allowed ;-)
+ */
+
+// change the values of `eatsPlants` and `eatsAnimals` to test your code
+var eatsPlants = false;
+var eatsAnimals = true;
+
+var category = eatsPlants && eatsAnimals ? "omnivore" :
+               eatsPlants ? "herbivore" :
+               eatsAnimals ? "carnivore" : undefined;
+
+console.log(category);
+
+
+
+
+
+
+/*
+ * Programming Quiz: Back to School (3-9)
+ */
+
+// change the value of `education` to test your code
+var education = "no high school diploma";
+
+// set the value of this based on a person's education
+var salary;
+
+// your code goes here
+/*
+ * Programming Quiz: Back to School (3-9)
+ */
+
+// change the value of `education` to test your code
+var education = "no high school diploma";
+
+// set the value of this based on a person's education
+var salary;
+
+// your code goes here
+switch (education) {
+    case "a high school diploma":
+       salary = 35256;
+    break;
+    case "an Associate's degree":
+      salary = 41496;
+    break;
+    case "a Bachelor's degree":
+       salary = 59124;
+    break;
+    case "a Master's degree":
+       salary = 69732;
+    break;
+    case "a Professional degree":
+        salary = 89960;
+    break;
+    case "a Doctoral degree":
+        salary = 84396;
+    break;
+    default: salary = 25636;
+}
+
+console.log(`In 2015, a person with ${education} earned ` +
+    `an average of $${salary.toLocaleString("en-US")}/year.`);
+
+
+
+
+/*
+ * Programming Quiz: 99 Bottles of Juice (4-2)
+ *
+ * Use the following `while` loop to write out the song "99 bottles of juice".
+ * Log the your lyrics to the console.
+ *
+ * Note
+ *   - Each line of the lyrics needs to be logged to the same line.
+ *   - The pluralization of the word "bottle" changes from "2 bottles" to "1 bottle" to "0 bottles".
+ */
+
+/*
+ * Programming Quiz: 99 Bottles of Juice (4-2)
+ *
+ * Use the following `while` loop to write out the song "99 bottles of juice".
+ * Log the your lyrics to the console.
+ *
+ * Note
+ *   - Each line of the lyrics needs to be logged to the same line.
+ *   - The pluralization of the word "bottle" changes from "2 bottles" to "1 bottle" to "0 bottles".
+ */
+
+var num = 99;
+var bottles = `${num} bottle${num === 1 ? "" : "s"} of juice`;
+var bottles1;
+
+while (num >= 1) {
+    bottles1 = `${num-1} bottle${num-1 === 1 ? "" : "s"} of juice`;
+    console.log(`${bottles} on the wall! ${bottles}! `
+        + `Take one down, pass it around... ${bottles1} on the wall!`);
+    bottles = bottles1;
+    num--;
+}
+
+
+
+
+/*
+ * Programming Quiz: Countdown, Liftoff! (4-3)
+ *
+ * Using a while loop, print out the countdown output above.
+ */
+
+// your code goes here
+
+
+var t = 60;
+
+while (t >= 0) {
+ if (t === 50) {
+    console.log("Orbiter transfers from ground to internal power");
+    } else if (t === 31) {
+      console.log("Ground launch sequencer is go for auto sequence start");
+    } else if (t === 16) {
+      console.log("Activate launch pad sound suppression system");
+    } else if (t === 10) {
+       console.log("Activate main engine hydrogen burnoff system");
+    } else if (t === 6) {
+        console.log("Main engine start");
+    } else if (t === 0) {
+        console.log("Solid rocket booster ignition and liftoff!");break;
+    } else {
+        console.log("T-"+t+" seconds");
+  }
+  t = t-1;
+}
+
+
+
+/*
+ * Programming Quiz: Factorials (4-7)
+ */
+
+// your code goes here
+var solution = 1
+for(var i = 12; i >= 1; i--){
+    solution = solution * i;
+}
+
+console.log(solution);
+
+
+/*
+ * Programming Quiz: Find my Seat (4-8)
+ *
+ * Write a nested for loop to print out all of the different seat combinations in the theater.
+ * The first row-seat combination should be 0-0
+ * The last row-seat combination will be 25-99
+ *
+ * Things to note:
+ *  - the row and seat numbers start at 0, not 1
+ *  - the highest seat number is 99, not 100
+ */
+
+// Write your code here
+ for(var row = 0; row < 26; row = row + 1) {
+     for(var seat = 0; seat <  100; seat = seat + 1) {
+         console.log(`row number ${row} and seat number ${seat}`);
+     }
+ }
+
+/*
+ * Programming Quiz: Find my Seat (4-8)
+ *
+ * Write a nested for loop to print out all of the different seat combinations in the theater.
+ * The first row-seat combination should be 0-0
+ * The last row-seat combination will be 25-99
+ *
+ * Things to note:
+ *  - the row and seat numbers start at 0, not 1
+ *  - the highest seat number is 99, not 100
+ */
+
+// Write your code here
+ for(var row = 0; row < 26; row = row + 1) {
+     for(var seat = 0; seat <  100; seat = seat + 1) {
+         console.log(`row number ${row} and seat number ${seat}`);
+     }
+ }
+
+
+
+//  A function that reserve a strings
+   function stringReverse(reverseMe) {
+     var reverseStr = "";
+     for (var i = reverseMe.length - 1; i >= 0; i--) {
+           reverseStr = reverseStr + reverseMe[i]
+     }
+     return reverseStr;
+   }
+
+   console.log(stringReverse('Mohamed'));
+
+
+   // A function that check if numbre is a prime
+
+  function isPrime(int) {
+    for (var x = 2; x < int; x++) {
+      if(int % x === 0){
+        console.log(int + " is divisible by " + x );
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  isPrime(12)
+
+
+
+
+  // returns the sum of two numbers
+function add(x, y) {
+  return x + y;
+}
+
+
+// returns the value of a number divided by 2
+function divideByTwo(num) {
+  return num / 2;
+}
+
+
+var sum = add(5, 7); // call the "add" function and store the returned value in the "sum" variable
+var average = divideByTwo(sum); // call the "divideByTwo" function and store the returned value in the "average" variable
+
+
+
+
+
+
+var superHeroes = [];
+
+var batman = {
+  secretIdentity : "Bruce Wayne",
+  superPowers : null,
+  money : 10000000000000
+};
+
+var spiderman = {
+  secretIdentity : "Peter Parker"
+};
+var onePunchMan = {
+  name : "Saitama"
+};
+var starLord = {
+  name : "Peter Quill",
+  teamMembers : ["Rocket", "Groot", "Dave Bautista", "Gamora"]
+};
+
+var wonderWoman = {
+  name : "Diana Prince",
+  superPowers : "a lot"
+};
+
+superHeroes.push(batman, spiderman, onePunchMan, starLord, wonderWoman, spiderman);
+
+//superHeroes array
+
+// var gamora = superHeroes[2].teamMembers[teamMembers.length - 1];
+// var gamora = superHeroes[2].teamMembers[3];
+
+// console.log(superHeroes[superHeroes.length - 1].superPowers); //undefined
+
+var wonderWomanPowers = superHeroes[3].superPowers;
+
+
+
+
+
+var someArray = [];
+var anInnerArray = [true, false, "hello"];
+var anEvenMoreNestedArray = [null, 0, false];
+
+anInnerArray.push(anEvenMoreNestedArray);
+
+anInnerArray; //[true, false, "hello", [null, 0, false]];
+someArray.push(anInnerArray);
+
+someArray; // [[true, false, "hello", [null, 0, false]]];
+
+console.log("what is that? " + someArray[0][2]);
+
+for (var i = 0; i < someArray[0][2].length; i+=1) {
+  //[true, false, "hello", [null, 0, false]]
+}
+
+
+
+
+
+
+
+
+
+
+
+// variable shadowing is overrides the global variable by the local variable
+// if they have the same varible name. to Avoid it you should have to declare the local variable also.
+
+var x = 1;
+function addTwo() {
+  x = x + 2; // x = 1 + 2;
+}
+
+addTwo(); // x = 3;
+x = x + 1; // overrides the variable x = 3 + 1;
+console.log(x);  // x = 4;
+// the result will be 4
+
+
+
+
+var x = 1;
+
+function addTwo() {
+  var x = x + 2; // x = 1 + 2;
+}
+
+addTwo(); // x = 3
+x = x + 1; // x = 1 + 1;
+console.log(x);  // x = 2
+
+
+
+
+
+
+
+// We've given you one function makeLine() to start with.
+// The function takes in a line length, and builds a line of asterisks and
+// returns the line with a newline character.
+
+function makeLine(length) {
+  var line = "";
+  for (var j = 1; j <= length; j++) {
+    line += "* "
+  }
+  return line + "\n";
+}
+
+
+
+
+
+
+
+
+
+
+/*
+ * Programming Quiz: Build A Triangle (5-3)
+ */
+
+// creates a line of * for a given length
+function makeLine(length) {
+    var line = "";
+    for (var j = 1; j <= length; j++) {
+        line += "* ";
+    }
+    return line + "\n";
+}
+
+// your code goes here.  Make sure you call makeLine() in your own code.
+function buildTriangle(row){
+var lineString = '';
+for(var i=1; i<=row; i++){
+lineString += makeLine(i);
+}
+return lineString;
+}
+
+console.log(buildTriangle(10));
+
+
+
+
+
+
+// callback function
+
+// function expression catSays
+var catSays = function(max) {
+  var catMessage = "";
+  for (var i = 0; i < max; i++) {
+    catMessage += "meow ";
+  }
+  return catMessage;
+};
+// function declaration helloCat accepting a callback
+function helloCat(callbackFunc) {
+  return "Hello " + callbackFunc(3);
+}
+// pass in catSays as a callback function
+helloCat(catSays);
+
+
+
+// name function expresssion
+var myFavoriteMovie = function movie() {
+  return "batman";
+};
+myFavoriteMovie();
+
+
+
+
+// Function expression that assigns the function displayFavorite
+// to the variable favoriteMovie
+var favoriteMovie = function displayFavorite(movieName) {
+  console.log("My favorite movie is " + movieName);
+};
+
+// Function declaration that has two parameters: a function for displaying
+// a message, along with a name of a movie
+function movies(messageFunction, name) {
+  messageFunction(name);
+}
+
+// Call the movies function, pass in the favoriteMovie function and name of movie
+movies(favoriteMovie, "Finding Nemo");
+
+
+
+// Function declaration that takes in two arguments: a function for displaying
+// a message, along with a name of a movie
+function movies(messageFunction, name) {
+  messageFunction(name);
+}
+
+// Call the movies function, pass in the function and name of movie
+movies(function displayFavorite(movieName) {
+  console.log("My favorite movie is " + movieName);
+}, "Finding Nemo");
+
+
+
+// anonymous function expression
+var doSomething = function(y) {
+  return y + 1;
+};
+
+
+
+// named function expression
+var doSomething = function addOne(y) {
+  return y + 1;
+};
+
+
+// for either of the definitions above, call the function like this:
+doSomething(5);
+
+
+
+// function declaration that takes in two arguments: a function for displaying
+// a message, along with a name of a movie
+function movies(messageFunction, name) {
+  messageFunction(name);
+}
+
+// call the movies function, pass in the function and name of movie
+movies(function displayFavorite(movieName) {
+  console.log("My favorite movie is " + movieName);
+}, "Finding Nemo");
+
+
+
+var laugh = function(lol){
+  var str = "";
+ for (var i = 0; i < lol; i++){
+   str += "ha";
+  }
+  return (str + "!");
+}
+
+console.log(laugh(10));
+
+
+
+
+/*
+ * Programming Quiz: Inline Functions (5-6)
+ */
+
+// don't change this code
+function emotions(myString, myFunc) {
+    console.log("I am " + myString + ", " + myFunc(2));
+}
+// your code goes here
+// call the emotions function here and pass in an
+// inline function expression
+emotions("happy", function(n) { return new Array(n+1).join("ha") + "!"; });
+
+
+
+
+
+
+/*
+ * Programming Quiz: Inline Functions (5-6)
+ */
+
+// don't change this code
+function emotions(myString, myFunc) {
+    console.log("I am " + myString + ", " + myFunc(2));
+}
+
+// your code goes here
+// call the emotions function here and pass in an
+// inline function expression
+emotions("happy",function(lol){
+  var str = "";
+ for (var i = 0; i < lol; i++){
+   str += "ha";
+  }
+  return (str + "!");
+});
+
+
+
+var donuts = ["jelly donut", "chocolate donut", "glazed donut"];
+
+donuts.forEach(function(donut) {
+  donut += " hole";
+  donut = donut.toUpperCase();
+  console.log(donut);
+});
+for (var i = 0; i < donuts.length; i++) {
+  donuts[i] += " hole";
+  donuts[i] = donuts[i].toUpperCase();
+  console.log(donuts[i]);
+}
+
+
+
+
+
+/*
+ * Programming Quiz: Another Type of Loop (6-8)
+ *
+ * Use the existing `test` variable and write a `forEach` loop
+ * that adds 100 to each number that is divisible by 3.
+ *
+ * Things to note:
+ *  - you must use an `if` statement to verify code is divisible by 3
+ *  - you can use `console.log` to verify the `test` variable when you're finished looping
+ */
+
+var test = [12, 929, 11, 3, 199, 1000, 7, 1, 24, 37, 4,
+    19, 300, 3775, 299, 36, 209, 148, 169, 299,
+    6, 109, 20, 58, 139, 59, 3, 1, 139
+];
+
+// Write your code here
+test.forEach(function(currentValue, index, array) {
+    if (currentValue % 3 === 0)
+        array[index] += 100;
+});
+console.log(test);
+
+/*
+ * Programming Quiz: I Got Bills (6-9)
+ */
+
+var bills = [50.23, 19.12, 34.01, 100.11, 12.15, 9.90,
+29.11, 12.99, 10.00, 99.22, 102.20, 100.10, 6.77, 2.22];
+
+// your code goes here
+
+var totals = bills.map(function(bill) {
+    return Number((bill * 1.15).toFixed(2));
+});
+console.log(totals);
+
+
+// Since each row is an array of donuts,
+//  you next need to set up an inner-loop to
+//   loop over each cell in the arrays.
+for (var row = 0; row < donutBox.length; row++) {
+  // here, donutBox[row].length refers to the length of the donut array currently being looped over
+  for (var column = 0; column < donutBox[row].length; column++) {
+    console.log(donutBox[row][column]);
+  }
+}
+
+// Prints:
+// JELLY DONUT HOLE
+// CHOCOLATE DONUT HOLE
+// GLAZED DONUT HOLE
+
+
+
+
+
+
+
+
+
+/*
+ * Programming Quiz: Nested Numbers (6-10)
+ *
+ *   - The `numbers` variable is an array of arrays.
+ *   - Use a nested `for` loop to cycle through `numbers`.
+ *   - Convert each even number to the string "even"
+ *   - Convert each odd number to the string "odd"
+ */
+
+var numbers = [
+    [243, 12, 23, 12, 45, 45, 78, 66, 223, 3],
+    [34, 2, 1, 553, 23, 4, 66, 23, 4, 55],
+    [67, 56, 45, 553, 44, 55, 5, 428, 452, 3],
+    [12, 31, 55, 445, 79, 44, 674, 224, 4, 21],
+    [4, 2, 3, 52, 13, 51, 44, 1, 67, 5],
+    [5, 65, 4, 5, 5, 6, 5, 43, 23, 4424],
+    [74, 532, 6, 7, 35, 17, 89, 43, 43, 66],
+    [53, 6, 89, 10, 23, 52, 111, 44, 109, 80],
+    [67, 6, 53, 537, 2, 168, 16, 2, 1, 8],
+    [76, 7, 9, 6, 3, 73, 77, 100, 56, 100]
+];
+
+// your code goes here
+
+for(var i = 0; i < numbers.length; i++){
+    for(var j = 0; j < numbers[i].length; j++) {
+      console.log(numbers[i][j] = numbers[i][j] % 2 === 0 ? "even" : "odd");
+    }
+}
+
+
+
+
+/*
+ * Programming Quiz: Umbrella (7-1)
+ */
+
+var umbrella = {
+    color: "pink",
+    isOpen: true,
+    open: function() {
+        if (umbrella.isOpen === true) {
+            return "The umbrella is already opened!";
+        } else {
+            umbrella.isOpen = true;
+            return "Julia opens the umbrella!";
+        }
+    },
+    // your code goes here
+    close: function() {
+        if(umbrella.inOpen === false){
+          return "The umbrella is already closed!";
+        } else {
+            umbrella.isOpen = false;
+            return "Julia closes the umbrella!";
+        }
+    }
+};
+
+console.log(umbrella.close());
+
+
+
+
+
+
+
+/*
+ * Programming Quiz: Bank Accounts 1 (7-3)
+ */
+
+var savingsAccount = {
+    balance: 1000,
+    interestRatePercent: 1,
+    deposit: function addMoney(amount) {
+        if (amount > 0) {
+           this.balance += amount;
+        }
+    },
+    withdraw: function removeMoney(amount) {
+        var verifyBalance = savingsAccount.balance - amount;
+        if (amount > 0 && verifyBalance >= 0) {
+            this.balance -= amount;
+        }
+    },
+    // your code goes here
+    printAccountSummary: function avaibleMoney(){
+        return `Welcome!\nYour balance is currently $${this.balance} ` +
+            `and your interest rate is ${this.interestRatePercent}%.`;
+    }
+};
+
+console.log(savingsAccount.printAccountSummary());
+
+
+
+/*
+ * Programming Quiz: Facebook Friends (7-5)
+ */
+
+// your code goes here
+var facebookProfile = {
+    name: "Mohamed Gassama",
+    friends: 10,
+    messages: ["hello", "hey", "waassup bro"],
+
+    postMessage: function(message) {
+      this.messages.push(message);
+      return this.messages;
+    },
+    deleteMessage: function(index) {
+       this.messages.splice(index, 1);
+       return this.messages;
+    },
+
+    addFriend: function() {
+      this.friends ++;
+      return this.friends;
+    },
+
+    removeFriend: function(){
+      this.friends --;
+      return this.friends;
+    }
+}
+
+console.log(facebookProfile.postMessage('hola'));
+console.log(facebookProfile.deleteMessage(3));
+console.log(facebookProfile.addFriend());
+console.log(facebookProfile.friends);
+console.log(facebookProfile.messages);
+
+
+
+
+/*
+ * Programming Quiz: Donuts Revisited (7-6)
+ */
+
+var donuts = [
+    { type: "Jelly", cost: 1.22 },
+    { type: "Chocolate", cost: 2.45 },
+    { type: "Cider", cost: 1.59 },
+    { type: "Boston Cream", cost: 5.99 }
+];
+
+// your code goes here
+donuts.forEach(function(donut) {
+    var str = `${donut.type} donuts cost $${donut.cost} each`;
+    console.log(str);
+});
+
+
+const double = function(x) {
+  return 2 * x;
+};
+
+const myFavaoriteNumber = 5;
+
+const doSomethingToSomeNumber = function(number, func) {
+  return func(number);
+};
+
+doSomethingToSomeNumber(myFavaoriteNumber, double);
+
+const numbers = [1, 9, 27, 5, 10, 3];
+
+const each = (array, func) => {
+  for (let i = 0; i < array.length; i++) {
+   return func(array[i], i);
+  }
+};
+
+// const addSum = (number) => {
+//  let sum = 0;
+//  return sum = sum + number
+// };
+
+each(numbers, (number, maximum = numbers[0]) => {
+  if (number > maximum) {
+   maximum = number;
+  }
+});
+
+each(numbers, (number, product = 1) => {
+ return product = product * number;
+});
+
+each(numbers, (number, sum = 0) => {
+ return sum = sum + number
+});
+
+
+// ----------------------------------------
+
+const add = (x) => {
+  return (y) => {
+  return x + y;
+  }
+}
+
+// const result = add(1);
+// result(1);
+
+const result = add(1)(1);
+result
+
+// 2
+
+// ============================================
+const double = (x) => {
+  return 2 * x;
+};
+
+const myNumber = 10
+
+const doSomethingToNumber = (number, func) => {
+    return func(number);
+};
+
+
+// doSomethingToNumber(10, (x) => {
+//    return 2 * x;
+// });
+
+// or
+
+doSomethingToNumber(myNumber, double);
+
+// 20
+
+
+
+
+const sumArray = (sum, array) => {
+ array.forEach((num) => {
+    sum += num;
+  })
+ return sum;
+};
+
+sumArray(0, [1, 2, 3, 4]); // 10
+sumArray('', [1, 2, 3, 4]); // '1234'
+sumArray('', ['array', 'object', 'function']); // 'arrayobjectfunction'
+
+
+
+
+var arr = [1,23,4,5,5,6,6,7];
+var str =['kaky','62118'];
+var arrayStr = ((array) => {
+  return array.reduce((accum, num) => {
+    // return accum += num;
+    return accum.concat(num);
+  }, '');
+});
+
+arrayStr(str);
+
+
+
+var arr = [1,23,4,5,5,6,6,7];
+var arrayNum = ((num) => {
+  return arr.reduce((accum, num) => {
+    return accum += num;
+  });
+}, 0);
+
+arrayNum(arr);
+
+
