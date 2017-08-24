@@ -431,12 +431,13 @@ function evenLength(numbers) {
 evenLength(["red", "green", "yellow", "blabla", "arrayjs"]);
 
 // largerThanSix (given an array of numbers, returns those larger than 6)
-function largerThanSix(number) {
+function largerThanSix(numbers) {
   return filter(numbers, function(num) {
     return num > 6;
   })
 }
 largerThanSix([1, 24, 45, 4, 9, 5, 89, 4]);
+
 //7 Using filter, write a function startsWithChar that accepts
 //two parameters: an array of strings, and a character (e.g. "a"),
 //and returns an array of only the strings that start with that character:
