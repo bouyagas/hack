@@ -62,7 +62,6 @@ var filter = function(collection, func) {
 // =====================================================================
  function filter (collection, test) {
   if(Array.isArray(collection)){
-
     var acc = [];
     each(collection, function(element, i) {
       if (test(element, i)) {
@@ -104,6 +103,25 @@ function map(collection, func) {
   return arr;
 }
 
+function map2(array1, array2, func) {
+  var newArr = [];
+  each(array1, function(element, index) {
+    each(array2, function(elem, ind) {
+      if(ind === index) {
+        newArr.push(func(elem, element));
+      }
+    });
+  });
+  return newArr;
+}
+
+function reduce(array, f, start) {
+  var acc = start;
+  each(array, function(element) {
+    acc = f(acc, element);
+  });
+  return acc;
+}
 // NA
 // function each(array, func) {
 //  each(array, function(element) {
