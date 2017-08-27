@@ -1,9 +1,44 @@
 // Testing
+function assertion(actual, expected, testName) {
+  if (actual === expected) {
+    console.log('Test Passed');
+  } else {
+    console.log(`Failed ${textName}: Expected to be ${expected} but got ${actual}`);
+  }
+}
 
+function assertObjectsEqual(actual, expected, testName) {
+  actual = JSON.stringify(actual);
+  expected = JSON.stringify(expected);
+  if (actual === expected) {
+    console.log('passed');
+  } else {
+    console.log('FAILED [' + testName + '] Expected ' + expected + ', but got ' + actual);
+  }
+}
+// loop HOF
+function each(coll, func) {
+  if(Array.isArray(coll)) {
+    for (var i = 0; i < coll.length; i++) {
+      func(coll[i], i);
+    }
+  } else {
+    for(var key in coll) {
+      func(coll[key], key);
+    }
+  }
+}
 // 1 Write a function called average that takes an array
 // of numbers as a parameter and returns the average
 // of those numbers.
-
+function average(numbers) {
+  var sum = 0;
+  each(numbers, function(elem, i) {
+    sum += elem;
+  });
+  return sum / numbers.length;
+  console.log(sum);
+}
 average([50, 25, 75, 10]); //40
 average([4, 12]); //8
 average([19, 23, 41, 99, 13]) //39
@@ -14,6 +49,15 @@ average([19, 23, 41, 99, 13]) //39
 //2 Write a function called min that finds the smallest
 // number in an array of numbers.
 
+function min(numbers) {
+  var myMin = numbers[0];
+  each(numbers, function(elem, i) {
+    if (elem < myMin) {
+      myMin = elem;
+    }
+  });
+  return myMin;
+}
 min([1, 20, 44, 64, 28]); //1
 min([400, 23, 87, 94, 21, 40]); //21
 min([10]); //10
@@ -23,7 +67,16 @@ min([10]); //10
 
 // Write a function shortestWord which returns the first shortest
 // word from the input string.
-
+function shortestWord(string) {
+  var arrayOfString = string.split(' ');
+  var myMin = arrayOfString[0];
+  each(arrayOfString, function(elem, i) {
+    if (elem.length < myMin.length) {
+      myMin = elem;
+    }
+  });
+  return myMin;
+}
 shortestWord('the wheels on the bus'); //'on'
 shortestWord('she sells sea shells'); //'she'
 shortestWord('one string to rule them all'); //'to'
@@ -37,7 +90,16 @@ shortestWord('one string to rule them all'); //'to'
 
 
 function countCharacters(s) {
-  // ...
+  var obj = {};
+  var arrayStr = s.split('');
+  each(arrayStr, function(elem, i) {
+    if( typeof obj[elem] !== 'undefined') {
+      obj[elem] += 1;
+    } else {
+      obj[elem] = 1;
+    }
+  });
+  return obj;
 }
 countCharacters("hello"); // => {"h": 1, "e": 1, "l": 2, "o": 1}
 
@@ -64,9 +126,18 @@ select({a: 1, b: 2, c: 3}, ["a", "c", "d"]); // => {a: 1, c: 3}
 // 6 Write a function called squareNumericValues that takes an object
 // as a parameter and returns an object with all of the numeric values
 // in the object squared, e.g.
+function squared (x) {
+  return x * x;
+}
 
 function squareNumericValues(obj) {
-  // TODO: Your code here
+  var myObj = {};
+  each(obj, function(values, keys) {
+    if (typeof values === 'number') {
+     myObj[keys] = values * values;
+    }
+  });
+  return myObj;
 }
 squareNumericValues({a: 4, b: 7, c: 2}); // => {a: 16, b: 49, c: 4}
 squareNumericValues({name: "Phuong", age: 25}); // => {name: "Phuong", age: 625}
