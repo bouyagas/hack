@@ -27,37 +27,119 @@ function filter(array, predicate) {
 // 1 Write a function called evens that takes an array of
 //  numbers as a parameter, and returns an array of only the even
 //  numbers in the parameter.
+function evens(numbers) {
+  return filter(numbers, function(elem) {
+    return evenElement(elem);
+  });
+}
+
+function evenElement(x) {
+  return x % 2 === 0;
+}
+
+evens([1, 2, 4, 6, 10, 44, 3, 60, 20, 45, 12]);
 
 // 2 Write a function called multiplesOfThree that
-//  takes an array of numbers as a parameter, and returns an array of o
-//  nly the numbers that are multiples of three.
+//  takes an array of numbers as a parameter, and returns an array of
+//  only the numbers that are multiples of three.
+function multiplesOfThree(numbers) {
+  return filter(numbers, function(elem) {
+    return elemMultiOfThree(elem);
+  });
+}
+
+function elemMultiOfThree(x) {
+  return x % 3 === 0;
+}
+
+multiplesOfThree([1, 2, 4, 6, 10, 44, 3, 60, 20, 45, 12]);
 
 // 3 Write a function called positives that takes an array of
 // numbers as a parameter, and returns an array of
 // only the numbers that are positive.
+function positives(numbers) {
+  return filter(numbers, function(elem) {
+    return positiveNums(elem);
+  });
+}
+
+function positiveNums(x) {
+  return x > 0;
+}
+
+positives([0, -21, -3, -0, -9, - 55, -7, 1, 2, 4, 6, 10, 44, 3, 60, 20, 45, 12, 7]);
 
 // 4 Write a function called evenLength that takes an array
 //  of strings and returns an array of only the
 //  strings with an even length.
+
+function evenLength(strings) {
+  return filter(strings, function(elem) {
+    return evenStrings(elem);
+  });
+}
+
+function evenStrings(string) {
+  return string.length % 2 === 0;
+}
+
+evenLength(["lion", "monkey", "aardvaark", "cat", "doge", "red", "green", "purple", "blue", "yellow"]);
+
 
 // More Practice
 
 //1 Use filter to write the following functions:
 
 // odds: Accepts an array of numbers, and returns the odd ones.
+function odds(numbers) {
+  return filter(numbers, function(elem) {
+    return oddElements(elem);
+  });
+}
 
+function oddElements(x) {
+  return x % 2 !== 0;
+}
+
+odds([0, -21, -3, -0, -9, - 55, -7, 1, 2, 4, 6, 10, 44, 3, 60, 20, 45, 12, 7]);
 // negatives: Like positives, but with negatives!
+function negatives(numbers) {
+  return filter(numbers, function(elem) {
+    return negativeNum(elem);
+  });
+}
+
+function negativeNum(x) {
+  return x < 0;
+}
+negatives([0, -21, -3, -0, -9, - 55, -7, 1, 2, 4, 6, 10, 44, 3, 60, 20, 45, 12, 7]);
 
 // largerThanSix: given an array of numbers, returns those larger than 6.
-
+function largerThanSix(numbers) {
+  return filter(numbers, function(elem) {
+    return elementsGreaterThanSix(elem);
+  });
+}
+function elementsGreaterThanSix(x) {
+  return x < 6;
+}
+largerThanSix([0, -21, -3, -0, -9, - 55, -7, 1, 2, 4, 6, 10, 44, 3, 60, 20, 45, 12, 7]);
 //2 Using filter, write a function startsWithChar that accepts
 // two parameters: an array of strings, and a character (e.g. "a"),
 // and returns an array of only the strings that start with that character:
 
- function startsWithChar(strings, character) {
-  // ...
+function startsWithChar(strings, character) {
+  var str = strings.split(" ");
+  return filter(str, function(char) {
+    return findTheCharacter(char, character);
+  });
 }
-var words = "the quick brown fox jumps over the lazy dog".split(" ");
+
+function findTheCharacter(x, y){
+  return x.startsWith(y);
+}
+
+var words = "the quick brown fox jumps over the lazy dog";
 startsWithChar(words, "q"); // => ["quick"]
 startsWithChar(words, "t"); // => ["the", "the"]
 
@@ -71,8 +153,17 @@ startsWithChar(words, "t"); // => ["the", "the"]
 // that also have an even length, e.g.:
 
 function evenIndexedEvenLengths(strings) {
-  // TODO: your code here
+  return filter(strings, function(elem, i) {
+    return findEvenLengthAndIndex(elem , i);
+  });
 }
+
+function findEvenLengthAndIndex(x, y) {
+  if (x.length % 2 === 0 && y % 2 === 0) {
+    return x;
+  }
+}
+
 evenIndexedEvenLengths(["lion", "monkey", "aardvaark", "cat", "doge"]);
 // => ["lion", "doge"]
 evenIndexedEvenLengths(["red", "green", "purple", "blue", "yellow"]);
@@ -118,9 +209,9 @@ function sum(numbers) {
 // of product, that returns the product of an array of numbers.
 
 function product(numbers) {
-  return reduce(???, function(???, number) {
-    return ??? * number;
-  }, ???);
+  return reduce(numbers, function(acc, number) {
+    return acc * number;
+  }, 1);
 }
 
 // 2 Rewrite the averageAge function from the warmup using reduce.
@@ -138,11 +229,17 @@ function product(numbers) {
 function averageAge(people) {
   // First you'll need to compute the sum of all the ages
   // Second, divide the sum by the number of people (people.length)
-
   // YOUR CODE HERE
+  return reduce(people, function(total, number) {
+    return arg(total, number, people);
+  }, 0);
 }
-// 3 The range function from yesterday looks like this:
 
+function arg(x, y, z) {
+  return x + y.age / z.length;
+}
+
+// 3 The range function from yesterday looks like this:
 function range(start, end) {
   var acc = [];
   for (var i = start; i < end; i++) {
@@ -156,6 +253,7 @@ function range(start, end) {
 
 function factorial(n) {
   // YOUR CODE HERE
+
 }
 
 // HINT: If you cannot think of how to do this,
@@ -175,6 +273,13 @@ function sumBy(numbers, f) {
   return sum;
 }
 // Rewrite sumBy using reduce.
+function sumBy(numbers) {
+   return reduce(numbers, function(acc, elem) {
+    return acc + elem;
+   }, 0);
+}
+
+sumBy([1, 2, 3, 4]);
 
 // 2 The max function below takes an array of numbers as a parameter,
 // and returns the maximum number in the array:
@@ -188,12 +293,22 @@ function max(numbers) {
   return max;
 }
 // Rewrite max using reduce.
-
+function max(numbers) {
+  var maximum = numbers[0];
+  return reduce(numbers, function(number) {
+    if(number > maximum) {
+      maximum = number;
+    }
+  }, 0);
+}
+max([1, 2, 3, 4]);
 //3 Write a function called countOccurrences that, given a string and a
 //  character (a string with length one) as parameters,
 //  returns the total number of times that character
 //  occurs in the string. For example:
+function countOccurrences(string, char) {
 
+}
 countOccurrences("hello", "l"); // => 2
 countOccurrences("the", "z"); // => 0
 countOccurrences("hello, world!", "l"); // => 3

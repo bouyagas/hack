@@ -113,8 +113,14 @@ countCharacters("hello"); // => {"h": 1, "e": 1, "l": 2, "o": 1}
 // an object and an array. The array should contain names
 // of keys that will be selected from the object:
 
-function select(obj, keys) {
-  // ...
+function select(obj, arr) {
+  var myObj = {};
+  each(arr, function(elem, i) {
+    if(elem !== 'undefined') {
+      myObj[elem] = obj[elem];
+    }
+  });
+  return myObj;
 }
 select({a: 1, b: 2, c: 3}, ["a"]); // => {a: 1}
 select({a: 1, b: 2, c: 3}, ["a", "c"]); // => {a: 1, c: 3}
@@ -133,8 +139,10 @@ function squared (x) {
 function squareNumericValues(obj) {
   var myObj = {};
   each(obj, function(values, keys) {
-    if (typeof values === 'number') {
-     myObj[keys] = values * values;
+    if (typeof values === 'number' ) {
+       myObj[keys] = squared(values);
+    } else {
+       myObj[keys] = values;
     }
   });
   return myObj;
@@ -159,3 +167,37 @@ typeof true; // => "boolean"
 
 // After you write your function, you can test it
 // using the above inputs to make sure that it behaves correctly.
+
+function assertEqual(actual, expected, testName) {
+  if (actual === expected) {
+    console.log('passed');
+  } else {
+    console.log('FAILED [' + testName + '] Expected \"' + expected + '\", but got \"' + actual + '\"');
+  }
+}
+
+
+// Kayleigh Foley
+function square(n) {
+  return n * n;
+}
+
+function testSquare_5(func) {
+  return assertEqual(square(5), 25, 'should return the square of 5');
+}
+function testSquare_negative(func) {
+  return assertEqual(square(-5), 25, 'should return a positive number from a negative input');
+}
+function testSquare_decimal(func) {
+  return assertEqual(square(0.5), 0.25, 'should return a smaller number from a decimal input');
+}
+function testSquare_0(func) {
+  return assertEqual(square(0), 0, 'should return 0 from input of 0');
+}
+
+function runAllTests() {
+  testSquare_5(square);
+  testSquare_negative(square);
+  testSquare_decimal(square);
+  testSquare_0(square);
+}

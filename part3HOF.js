@@ -1,6 +1,5 @@
 // Exercises - Map
-
-  function each(coll, f) {
+function each(coll, f) {
   if (Array.isArray(coll)) {
     for (var i = 0; i < coll.length; i++) {
       f(coll[i], i);
@@ -100,7 +99,7 @@ var sampleInput = [
   [1, 3, 2],
   [4, 23, 100],
   [7, 6, 3, -2]
-  ]
+  ];
 // and we want to be able to use maximums to do this:
 maximums(sampleInput); // => [3, 100, 7]
 
@@ -343,11 +342,37 @@ function map(coll, f) {
 // the updated version of map for this, and you will need to
 // check the type of each value to determine whether or not it
 // should be incremented.
+function increments(x) {
+  return x = x + 1;
+}
 
+function incrementValues(object) {
+  return map(object, function(values, keys) {
+    if (typeof values === 'number') {
+      return increments(values);
+    }
+    return values;
+  });
+}
+
+incrementValues({a: "derp", b: 1, c: 10});
 //3 Write a function called uppercaseValues that, given an object as a parameter,
 // returns a new object with all of its string values converted to
 // uppercase. You'll want to make use of .toUpperCase() for this:
+function uppercase(x) {
+  return x.toUpperCase();
+}
 
+function uppercaseValues(object) {
+  return map(object, function(values, keys) {
+    if(typeof values === 'string') {
+      return uppercase(values);
+    }
+    return values;
+  });
+}
+
+uppercaseValues({a: "derp", b: 1, c: 10, d: 'kaky', e: 'camassa'});
 "hello".toUpperCase(); // => "HELLO"
 
 // Also, ensure that you only attempt to convert strings to uppercase
@@ -357,8 +382,22 @@ function map(coll, f) {
 // where all values are also objects, returns an object that
 // contains the count of keys in each nested object, e.g.
 
-function countNestedKeys(object) {
-  // TODO: Your code here
-}
+ function countKeys(value){
+  var counter = Object.keys(value).length;
+  each(value, function(values, keys){
+    if(typeof values === 'object' && !Array.isArray(values)){
+      counter += countKeys(values);
+    }
+  });
+  return counter;
+ }
+
+
+ function countNestedKeys(object) {
+  return map(object, function(value, key){
+    return countKeys(value);
+  });
+ }
+
 countNestedKeys({a: {b: 1, c: 7}, f: {h: 22, g: 12, i: 24}});
 // => {a: 2, b: 3}

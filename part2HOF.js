@@ -1,4 +1,4 @@
-// Exercises - Each Indices
+  // Exercises - Each Indices
 
  function each(array, func) {
   for (var i = 0; i < array.length; i++) {
@@ -263,7 +263,9 @@ largerThanSix([-18, -913, -3 -4, 0,1, 3, 3, 4, 7, 10]);
 // start with that character:
 
 function startsWithChar(strings, character) {
-  // ...
+  return filter(strings, function(char) {
+    return char.startsWith(character);
+  });
 }
 var words = "the quick brown fox jumps over the lazy dog".split(" ");
 startsWithChar(words, "q"); // => ["quick"]

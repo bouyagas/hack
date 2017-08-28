@@ -50,13 +50,13 @@ var filter = function(collection, func) {
   } else {
     var obj = {};
     for (var key in collection) {
-     if (func(obj[key], key)) {
-      obj[key] = key;
+      if (func(collection[key], key)) {
+      obj[key] = collection[key];
     }
   }
   return obj;
  }
-}
+};
 
 
 // =====================================================================
@@ -69,10 +69,8 @@ var filter = function(collection, func) {
       }
     });
     return acc;
-
   } else {
-
-    var obj = {};
+   var obj = {};
     each(collection, function(element, key) {
       if (test(element, key)) {
         obj[key] = element;
@@ -115,6 +113,17 @@ function map2(array1, array2, func) {
   return newArr;
 }
 
+function map(coll, f) {
+  var acc = [];
+  if (!Array.isArray(coll)) {
+    acc = {};
+  }
+  each(coll, function(element, key) {
+    acc[key] = f(element, key);
+  });
+  return acc;
+}
+
 function reduce(array, f, start) {
   var acc = start;
   each(array, function(element) {
@@ -122,9 +131,11 @@ function reduce(array, f, start) {
   });
   return acc;
 }
-// NA
-// function each(array, func) {
-//  each(array, function(element) {
-//   func(element);
-//  });
-// }
+
+function sumBy(numbers, f) {
+  var sum = 0;
+  each(numbers, function(number) {
+    sum = sum + f(number);
+  });
+  return sum;
+}

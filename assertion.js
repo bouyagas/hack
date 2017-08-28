@@ -86,9 +86,30 @@ const squareNumericValues = (obj) => {
   each(obj, (values, keys) => {
     if (typeof values === 'number') {
      myObj[keys] = square(values);
+    } else {
+      myObj[keys] = values;
     }
   });
   return myObj;
 };
 
 assertObjectsEqual(squareNumericValues({a: 4, b: 7, c: 2}), { a: 16, b: 49, c: 4 }, 'it should return obj with squared numbers');
+assertObjectsEqual(squareNumericValues({name: "Phuong", age: 25}), {name: "Phuong", age: 625}, 'it should return obj with squared numbers');
+
+
+
+const select = (obj, arr) => {
+  let myObj = {};
+  each(arr, function(elem, i) {
+    if(elem !== 'undefined') {
+      myObj[elem] = obj[elem];
+    }
+  });
+  return myObj;
+};
+
+assertObjectsEqual(select({a: 1, b: 2, c: 3}, ["a"]), {a: 1}, 'should return properties within an object based on array elements');
+assertObjectsEqual(select({a: 1, b: 2, c: 3}, ["a", "c"]), {a: 1, c: 3}, 'should return properties within an object based on array elements');
+assertObjectsEqual(select({a: 1, b: 2, c: 3}, ["a", "c", "d"]), {a: 1, c: 3}, 'should return properties within an object based on array elements');
+
+

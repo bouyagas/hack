@@ -158,3 +158,398 @@ function assertObjectEquals(actual, expected, testName) {
     console.log('FAILED [' + testName + '] expected: "' + expected + '", but got "' + actual + '".');
   }
 }
+
+
+
+
+
+
+
+function each (coll , func){
+  if ( Array.isArray(coll)){
+    for (var i=0 ; i < coll.length ;i++){
+      func(coll[i],i);
+    }
+  } else {
+    for (var key in coll){
+      func(coll[key],key);
+    }
+  }
+}
+
+
+function squares (nums){
+  var newArray = [] ;
+  each(nums, function(num , ind){
+    newArray.push ( num*num );
+  });
+  return newArray ;
+}
+
+var nums = [1,2,3,4] ;
+//console.log(squares(nums));
+
+var obj = {a:1 , b:2 , c:3} ;
+//console.log(squares(obj));
+obj;
+
+squares(obj);
+function  keysLongerThan ( obj  , num ){
+  var newObj = {};
+
+
+      each(obj , function (value , label){
+        if (label.length > num){
+          newObj[label] =  value;
+        }
+
+      });
+
+  return newObj ;
+
+}
+
+keysLongerThan({name: 'Annyeong', age: 25, favoriteColor: 'blue'}, 3);
+ // => {name: 'Annyeong', favoriteColor: 'blue'}
+
+ keysLongerThan({name: 'Annyeong', age: 25, favoriteColor: 'blue'}, 4);
+ // => {favoriteColor: 'blue'}
+
+ /*
+ Write a function called incrementValues that accepts an object as a parameter, and outputs an object with all of its numeric values incremented by one. You'll want to use the updated version of each for this, and you will need to check the type of each value to determine whether or not it should be incremented. HINT: Try entering the following expressions in to your console:
+ */
+
+
+
+
+ function incrementValues (obj){
+ var newObj = {};
+
+
+ each (obj , function (ele , key){
+   if (typeof  ele === 'number') {
+   newObj[key]= ele + 1;
+   }
+ } ) ;
+
+ return newObj;
+ }
+
+
+
+ typeof 'hello'; // => 'string'
+ typeof 1;       // => 'number'
+ typeof true;    // => 'boolean'
+ typeof [];    // => 'object'
+typeof {};    // => 'object'
+
+incrementValues (obj);
+
+
+/*
+Write a function called objectToArrayOrArrayToObject that takes an array or an object and transforms any array or object within the array or object into an object or array.
+*/
+
+ function objectToArrayOrArrayToObject(collection) {
+
+function changer (collection ){
+
+   if (Array.isArray(collection)) {
+     var newObj = {};
+          each( collection , function ( ele , ind ){
+            newObj[ind]   =  changer(ele) ;
+          });
+     return newObj;
+   } else if (typeof collection === "object" ) {
+       var newArray= [];
+       each (collection, function(value,key){
+        newArray.push(changer(value));
+       });
+
+       return newArray;
+  }
+     return collection ;
+}
+
+
+each(collection , function(ele ,ind){
+    collection[ind] = changer(ele);
+});
+return collection ;
+
+ }
+ var ex = {ages: [23, 44, {min: 1, max: 2}], people: {height: 'tall', eye_color: 'brown'}};
+ objectToArrayOrArrayToObject(ex);
+ // {ages: {0: 23, 1: 44, 2: [1, 2]} people: ['tall', 'brown']}
+/*
+.Write a function called oddEvenArray that accepts an object
+ as parameter and return array of numbers of the key values
+ of the object ( you need to arrange the new array,
+  odd numbers will be at the beginning of the array,
+   then the even numbers will be at the end of the array)
+*/
+ function oddEvenArray(object){
+    let odd = [];
+    let even = [];
+    each (object, function(value, key){
+      if (value % 2 !== 0 ) {
+        odd.push(value);
+      } else {
+        even.push(value);
+      }
+    });
+    odd.sort(function(a,b){return a-b});
+    even.sort(function(a,b){return b-a});
+    return odd.concat(even);
+ }
+ oddEvenArray({a:3,b:5 ,c: 4 ,d: 1, e:10, f:12 ,g:56 ,h:44 ,i:32}); // ==> [3,5,1,4,10,12,56,44,32]
+  //return the odd numbers ordered Ascending and the even numbers descending
+ oddEvenArray({a:3,b:5 ,c: 4 ,d: 1, e:10, f:12 ,g:56 ,h:44 ,i:32}); // ==> [1,3,5,56,44,32,12,10,4]
+
+
+/*
+Write a function called isPrimeArray that accepts an object
+as parameter and return array of prime numbers in the
+object
+*/
+ function isPrime(object){
+      var array = [];
+      each ( object  , function(value , key){
+        var Prime = true ;
+        for (var i = 2 ; i < value; i++) {
+          if (value%i === 0){
+            Prime = false ;
+            break;
+           }
+          }
+        if (Prime) {
+          array.push(value) ;
+        }
+      } );
+     return array;
+}
+ isPrime({a:3,b:5 ,c: 4 ,d: 1, e:10, f:12 ,g:56 ,h:44 ,i:32}); // ==> [3,5,1]
+
+
+
+
+
+var people = [{
+  name: {
+    first: 'Majd',
+    middle: 'Eddin',
+  },
+  age: 30
+}, {
+  name: {
+    first: 'Fatima',
+    last: 'Himmamy'
+  },
+  age: 26
+}, {
+  name: {
+    first: 'Sahar',
+    middle: 'MHD'
+  },
+  age: 27
+}, {
+  name: {
+    first: 'Nour',
+    middle: 'Eddin',
+  },
+  age: 15
+}, {
+  name: {
+    first: 'Ahmad',
+    last: 'Awad'
+  },
+  age: 33
+}];
+function converter (person){
+  var edited = person;
+  edited.age = (edited.age * 365*24*60) + ' minutes' ;
+  return edited;
+}
+
+function agesToMinutes(people){
+  return map( people , function ( person  , ind ){
+    return converter (person);
+  } );
+}
+
+
+
+function passwordHealth(password) {
+  var criteria = {} ;
+
+  criteria.smalls = /[a-z]/.test(password);
+  criteria.capitsls = /[A-Z]/.test(password);
+  criteria.numbers = /[\d]/.test(password);
+  criteria.symbols = /\W/.test(password);
+
+  var checks = 0;
+  each(criteria, function(value){
+    if(value === true) checks++;
+  });
+
+  if(checks === 4){
+    return 'strong';
+  }else if(checks >= 2){
+    return 'normal';
+  }else{
+    return 'weak';
+  }
+}
+
+function needFlag (password){
+  if (password.length >= 8){
+    return true;
+  }
+  return false ;
+}
+
+
+function securityCheck (array) {
+  return map(array,function( account ,  ind ){
+    account.user['flag'] = needFlag(account.user.password);
+    account.user.passwordHealth = passwordHealth(account.user.password);
+    return account;
+  });
+}
+
+ var usersData = [
+       { user: {email: 'majd@rbk.org', password: '_majd(2017)'}},
+       { user: {email: 'fatema@rbk.org', password: '12345'}},
+       { user: {email: 'maher@rbk.org', password: 'M@her2017'}},
+       { user: {email: 'sahar@rbk.org', password: 'saher2017'}}
+ ];
+
+function filter(coll, condition){
+  var output = {};
+  if(typeof coll === 'object'){
+    if(Array.isArray(coll)){
+      output = [];
+      each(coll, function(element, index){
+        if(condition(element, index)){
+          output.push(element);
+        }
+      });
+    }else{
+      each(coll, function(element, key){
+        if(condition(element, key)){
+          output[key] = element;
+        }
+      });
+    }
+    return output;
+  }
+  return coll;
+}
+
+
+
+function evens(arr){
+  function isEven(num){
+    return num % 2 === 0;
+  }
+  return filter(arr, isEven);
+}
+
+function multipliesOfThree(arr){
+  function isDivisableBy3(num){
+    return num % 3 === 0;
+  }
+  return filter(arr, isDivisableBy3);
+}
+
+function positives (arr){
+  return filter (arr,function(num){
+    return num >=0 ;
+  });
+}
+
+function evenLength (arr){
+  return filter (arr,function(str){
+    return !(str.length %2)  ;
+  });
+}
+
+function odds(arr){
+  return filter(arr, function(num){ return num % 2 });
+}
+
+function negatives (arr){
+  return filter (arr,function(num){
+    return num < 0 ;
+  });
+}
+
+function largerThanSix (arr){
+  return filter (arr,function(num){
+    return num > 6;
+  });
+}
+
+
+function startsWithChar (arr, char){
+  return filter(arr,function(ele){
+    return (new RegExp ('^' + char , 'i')).test(ele) ;
+  });
+}
+
+function evenIndexedEvenLengths(arr){
+  return filter(arr, function(element, index){
+    return (element.length % 2 === 0) && (index % 2 === 0) ;
+  });
+}
+//maram_alquraan  solution for ex 5 at filter lecture ,
+
+var newarray=[2,0,3,0,40,3,6,0,10,11];
+
+function moveZero(array){
+     var arr1=[];
+     var arr2=[];
+     arr1= filter2(array,function(element,i){
+             return element===0;
+     });
+     arr2= filter2(array,function(element,i){
+             return element!==0;
+     });
+           return arr2.concat(arr1);
+}
+
+function moveZero(arr){
+  var zeroCounter = 0;
+  var output = filter(arr, function(num, i){
+    if(num !== 0){
+      return true
+    }
+    zeroCounter++;
+    return false;
+  });
+  for(var i = 0 ; i < zeroCounter ; i++){
+    output.push(0);
+  }
+  return output;
+}
+ var usersData = [
+       { user: {email: 'majd@rbk.org', password: '_Majd(2017)'}},
+       { user: {email: 'fatema@rbk.org', password: '12345'}},
+       { user: {email: 'maher@rbk.org', password: 'M@her2017'}},
+       { user: {email: 'sahar@rbk.org', password: 'saher2017'}}
+ ];
+
+
+ function strongPasswords(array){
+       return filter(array , function( account ){
+          return needFlag(account.user.password) && (passwordHealth(account.user.password) === 'strong');
+       });
+ }
+
+
+
+
+
+
+
+
