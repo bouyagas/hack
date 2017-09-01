@@ -549,6 +549,158 @@ function moveZero(arr){
 
 
 
+/*
+Problem statement
+
+Accept an array of numbers that represent a phone number.
+E.g., [6, 5, 0, 8, 3, 5, 9, 1, 7, 2]
+Return as a string in this format: '(650) 835-9172'.
+
+A poor implementation
+
+function renderPhoneNumber(numbers){
+  return '(' + numbers[0] + numbers[1] + numbers[2] + ') '
+    + numbers[3] + numbers[4] + numbers[5] + '-'
+    + numbers[6] + numbers[7] + numbers[8] + numbers[9];
+}
+
+What you should do instead
+
+Read the object-oriented skeleton.
+
+After you understand the flow of processing that it sketches out, fill in the implementation.
+
+Notes:
+* Do not leave any methods unused.
+
+*/
+
+function PhoneNumberFormatter(numbers) {
+  this.numbers = numbers;
+}
+
+PhoneNumberFormatter.prototype.render = function() {
+  var string = '';
+  // your code here
+  string += this.parenthesize(this.getAreaCode());
+  string += ' ';
+  string += this.getExchangeCode();
+  string += '-';
+  string += this.getLineNumber();
+  return string;
+};
+
+PhoneNumberFormatter.prototype.getAreaCode = function() {
+  // your code here
+  return this.slice(0,3);
+};
+
+PhoneNumberFormatter.prototype.getExchangeCode = function() {
+  // your code here
+   return this.slice(3,6);
+};
+
+PhoneNumberFormatter.prototype.getLineNumber = function() {
+  // your code here
+  return this.slice(6,10);
+};
+
+PhoneNumberFormatter.prototype.parenthesize = function(string) {
+  return '(' + string + ')';
+};
+
+PhoneNumberFormatter.prototype.slice = function(start, end) {
+  return this.numbers.slice(start, end).join('');
+};
+
+
+var phoneFormat = new PhoneNumberFormatter([8,0,5,7,9,4,4,4,2,2]);
+phoneFormat.render();
+
+
+
+//WE CAN MAKE DUCKS THIS WAY, AS WELL
+
+function DuckFormatter(duckDescription){
+  this.duck = duckDescription;
+}
+
+DuckFormatter.prototype.format = function(){
+  var string = '';
+  // string += this.getName();
+  // string += ', ';
+  // string += this.getSpecies();
+  // string += ', ';
+  // string += this.getAge();
+  // string += ', ';
+  // string += this.getQuack();
+  // string += ', ';
+  // string += this.getRegion();
+
+  string = "This is a duck named " + this.getName() + '. He is a ' + this.getAge() + ' year old ' + this.getSpecies() + ' from ' + this.getRegion() + ' and his quack is absolutely ' + this.getQuack() + '.';
+
+  return string;
+};
+
+DuckFormatter.prototype.getName = function(){
+
+  return this.findProperty('name');
+};
+
+DuckFormatter.prototype.getSpecies = function(){
+  return this.findProperty('species');
+};
+
+DuckFormatter.prototype.getAge = function(){
+  return this.findProperty('age');
+};
+
+DuckFormatter.prototype.getQuack = function(){
+  return this.findProperty('quack');
+};
+
+DuckFormatter.prototype.getRegion = function(){
+  return this.findProperty('region');
+};
+
+DuckFormatter.prototype.findProperty = function(target){
+  for(var prop in this.duck){
+    if(prop === target){
+      return this.duck[prop];
+    }
+  }
+};
+
+//have each duck be an object:
+
+//eg:
+
+/*
+
+Greg = {
+  name: 'Greg',
+  quack: 'bodacious';
+}
+
+*/
+
+var greg = {
+  name: 'Greg',
+  quack: 'bodacious',
+  species: 'Mallard',
+  region: 'North America',
+  age: 12
+};
+
+var gregDuck = new DuckFormatter(greg);
+console.log(gregDuck.format());
+
+
+
+
+
+
+
 
 
 

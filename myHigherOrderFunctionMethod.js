@@ -1,10 +1,11 @@
+// each
 function each(array, func) {
   for (var i = 0; i < array.length; i++) {
     func(array[i]);
   }
 }
 
-
+// filter
 function filter(array, f) {
   var arr = [];
   for (var i = 0; i < array.length; i++) {
@@ -14,7 +15,7 @@ function filter(array, f) {
   }
   return arr;
 }
-
+// map
 function map(array, f) {
   var arr = [];
   for (var i = 0; i < array.length; i++) {
@@ -24,7 +25,7 @@ function map(array, f) {
 }
 
 // =================================================================
-
+// looping over arrays and objects
 function each(coll, f) {
   if (Array.isArray(coll)) {
     for (var i = 0; i < coll.length; i++) {
@@ -37,7 +38,7 @@ function each(coll, f) {
   }
 }
 
-
+// filtering over arrays and object
 var filter = function(collection, func) {
   if(Array.isArray(collection)){
     var acc = [];
