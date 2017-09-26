@@ -1563,5 +1563,29 @@ for (var i = w.length - 1; i >= 0; i--) {
 console.log(rev('hello'));
 
 
+// ssp-4 readiness assesement
 
+function intersection(arr1, arr2) {
+  var result = [];
+  for(var i = 0; i < arr1.length; i++) {
+    for(var j = 0; j < arr2.length; j++) {
+      if(arr1[i] === arr2[j]) {
+        result.push(arr1[i]);
+      }
+    }
+  }
+  return result;
+}
+
+console.log(intersection([1, 3, 5, 6, 7],[2, 1, 9, 5, 7]));
+
+function sumDigit(numbers) {
+ var sum = numbers.toString(); // '1234';
+ var array = sum.split(''); // ['1', '2', '3', '4'];
+ return array.reduce(function(acc, value) {
+  return acc + parseInt(value) // [1, 2, 3, 4];
+ }, 0);
+}
+
+console.log(sumDigit(1234)); // 1 + 2 + 3 + 4 = 10;
 // Characters within a string are indexed starting from 0, where the first character is at position 0, to n-1, where the last character is at position n-1 (n represents the total number of characters within a string).

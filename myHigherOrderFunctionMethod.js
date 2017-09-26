@@ -38,7 +38,7 @@ function each(coll, f) {
   }
 }
 
-// filtering over arrays and object
+// filtering over arrays and objectjs
 var filter = function(collection, func) {
   if(Array.isArray(collection)){
     var acc = [];
